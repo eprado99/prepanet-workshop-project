@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360EEFCAF76EF20499434A90 /* Pods_AppPrepanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */; };
+		AF1A5DCB272F7F1300B51E02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */; };
 		AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */; };
 		AF761DF3272AE36100958AAB /* TableViewControllerAWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */; };
 		AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */; };
@@ -24,12 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.release.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.release.xcconfig"; sourceTree = "<group>"; };
+		AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlumnos.swift; sourceTree = "<group>"; };
 		AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAWorkshop.swift; sourceTree = "<group>"; };
 		AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWorkshopCell.swift; sourceTree = "<group>"; };
 		AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerfil.swift; sourceTree = "<group>"; };
 		AF777F50272F436D00E036F4 /* Workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
 		AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWorkshop.swift; sourceTree = "<group>"; };
+		DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppPrepanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.debug.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.debug.xcconfig"; sourceTree = "<group>"; };
 		FB7EC61B2722FD020028F1C7 /* AppPrepanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPrepanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,17 +53,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360EEFCAF76EF20499434A90 /* Pods_AppPrepanet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		649F8CC2B621FA0D88829EBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */,
+				84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8D2A079BE11315FB024834F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FB7EC6122722FD020028F1C7 = {
 			isa = PBXGroup;
 			children = (
 				FB7EC61D2722FD020028F1C7 /* AppPrepanet */,
 				FB7EC61C2722FD020028F1C7 /* Products */,
+				649F8CC2B621FA0D88829EBA /* Pods */,
+				8D2A079BE11315FB024834F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +113,7 @@
 				FB7EC655272322D00028F1C7 /* ViewControllerVistaInicial.swift */,
 				FB7EC6272722FD040028F1C7 /* Assets.xcassets */,
 				FB7EC6292722FD040028F1C7 /* LaunchScreen.storyboard */,
+				AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */,
 				FB7EC62C2722FD040028F1C7 /* Info.plist */,
 			);
 			path = AppPrepanet;
@@ -98,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB7EC62F2722FD040028F1C7 /* Build configuration list for PBXNativeTarget "AppPrepanet" */;
 			buildPhases = (
+				50EDCA18F86AA2092F1A36E0 /* [CP] Check Pods Manifest.lock */,
 				FB7EC6172722FD020028F1C7 /* Sources */,
 				FB7EC6182722FD020028F1C7 /* Frameworks */,
 				FB7EC6192722FD020028F1C7 /* Resources */,
+				AD2DA7E0C3CBA7587B92DE37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,12 +179,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB7EC62B2722FD040028F1C7 /* LaunchScreen.storyboard in Resources */,
+				AF1A5DCB272F7F1300B51E02 /* GoogleService-Info.plist in Resources */,
 				FB7EC6282722FD040028F1C7 /* Assets.xcassets in Resources */,
 				FB7EC6262722FD020028F1C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50EDCA18F86AA2092F1A36E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppPrepanet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD2DA7E0C3CBA7587B92DE37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB7EC6172722FD020028F1C7 /* Sources */ = {
@@ -315,6 +388,7 @@
 		};
 		FB7EC6302722FD040028F1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,7 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITESM.AppPrepanet;
+				PRODUCT_BUNDLE_IDENTIFIER = ITESM.prepanetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,6 +407,7 @@
 		};
 		FB7EC6312722FD040028F1C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -342,7 +417,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ITESM.AppPrepanet;
+				PRODUCT_BUNDLE_IDENTIFIER = ITESM.prepanetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

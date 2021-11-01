@@ -7,7 +7,11 @@
 
 import UIKit
 
+import FirebaseFirestore
+
 class TableViewControllerAWorkshop: UITableViewController {
+    
+    var db: Firestore!
     /*
     struct workshops{
            let title: String
@@ -19,7 +23,28 @@ class TableViewControllerAWorkshop: UITableViewController {
            }
        }
  */
-   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        
+        db = Firestore.firestore()
+    }
+    
+    private func getWorkshops() {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
+
     var lorem : String = "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
     let workshopArr : [Workshop] = [
         Workshop(title: "prueba1", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
@@ -27,17 +52,6 @@ class TableViewControllerAWorkshop: UITableViewController {
         Workshop(title: "prueba3", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
         Workshop(title: "prueba4", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum")
     ]
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
 
     // MARK: - Table view data source
 
@@ -112,3 +126,53 @@ class TableViewControllerAWorkshop: UITableViewController {
     
 
 }
+
+/*
+ private var restaurants: [Restaurant] = []
+   private var documents: [DocumentSnapshot] = []
+
+   fileprivate var query: Query? {
+     didSet {
+       if let listener = listener {
+         listener.remove()
+         observeQuery()
+       }
+     }
+   }
+
+   private var listener: ListenerRegistration?
+
+   fileprivate func observeQuery() {
+     guard let query = query else { return }
+     stopObserving()
+
+     // Display data from Firestore, part one
+     listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
+       guard let snapshot = snapshot else {
+         print("Error fetching snapshot results: \(error!)")
+         return
+       }
+       let models = snapshot.documents.map { (document) -> Restaurant in
+         if let model = Restaurant(dictionary: document.data()) {
+           return model
+         } else {
+           // Don't use fatalError here in a real app.
+           fatalError("Unable to initialize type \(Restaurant.self) with dictionary \(document.data())")
+         }
+       }
+       self.restaurants = models
+       self.documents = snapshot.documents
+
+       if self.documents.count > 0 {
+         self.tableView.backgroundView = nil
+       } else {
+         self.tableView.backgroundView = self.backgroundView
+       }
+
+       self.tableView.reloadData()
+     }
+   }
+
+   fileprivate func stopObserving() {
+     listener?.remove()
+   } */
