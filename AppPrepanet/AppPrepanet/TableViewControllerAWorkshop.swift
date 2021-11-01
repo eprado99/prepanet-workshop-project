@@ -12,17 +12,14 @@ import FirebaseFirestore
 class TableViewControllerAWorkshop: UITableViewController {
     
     var db: Firestore!
-    /*
-    struct workshops{
-           let title: String
-           let description: String
-           
-           init(title: String, description: String) {
-               self.title = title
-               self.description = description
-           }
-       }
- */
+    
+    var workshopArr : [Workshop] = [
+        Workshop(title: "prueba1", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
+        Workshop(title: "prueba2", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
+        Workshop(title: "prueba3", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
+        Workshop(title: "prueba4", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,27 +28,40 @@ class TableViewControllerAWorkshop: UITableViewController {
         Firestore.firestore().settings = settings
         
         db = Firestore.firestore()
+        
+        getWorkshops()
+        
+        
     }
     
     private func getWorkshops() {
-        db.collection("users").getDocuments() { (querySnapshot, err) in
+        db.collection("Talleres").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                    let tit = document.get("titulo") as! String
+                    let des = document.get("descripcion") as! String
+                    //print("\(document.documentID) => \(document.data())")
+                    /*
+                    if let data = document.data() as? [String: Any]{
+                        for wk in data {
+                            guard let validWK = wk as? Dictionary<String, Any> else {
+                                continue
+                            }
+                            let tit = validWK["titulo"] as? String ?? "hola"
+                            let des = validWK["descripcion"] as? String ?? "hola"
+                            print("titulo: \(tit), descripcion: \(des)")
+                        }
+                        */
+                    self.workshopArr.append(Workshop(title: tit, descr: des))
+                    
                 }
+                    
             }
-        }
+            self.tableView.reloadData()
     }
-
-    var lorem : String = "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
-    let workshopArr : [Workshop] = [
-        Workshop(title: "prueba1", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba2", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba3", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba4", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum")
-    ]
+    }
 
     // MARK: - Table view data source
 
@@ -73,7 +83,6 @@ class TableViewControllerAWorkshop: UITableViewController {
         cell.lbDescription.text = workshop.descr
         return cell
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
