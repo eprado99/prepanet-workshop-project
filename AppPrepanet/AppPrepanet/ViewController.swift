@@ -35,6 +35,8 @@ class ViewController: UIViewController {
         if let user = tfUser.text,
            let pass = tfPassword.text{
             let vistaIni = segue.destination as! ViewControllerAlumnos
+            vistaIni.matricula = tfUser.text ?? ""
+            
         }
         
     }

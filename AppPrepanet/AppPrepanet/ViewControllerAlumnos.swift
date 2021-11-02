@@ -11,7 +11,10 @@ import FirebaseFirestore
 class ViewControllerAlumnos: UIViewController {
     
     var db: Firestore!
-    var matricula: String = "A01570318"
+    var matricula: String!
+    @IBOutlet weak var nombreAlumno: UILabel!
+    @IBOutlet weak var matriculaAlumno: UILabel!
+    
     // let user : User = getAlumno(matricula)
     // var contra : String = "prueba123"
     @IBOutlet weak var btWorkshop: UIButton!
@@ -45,6 +48,8 @@ class ViewControllerAlumnos: UIViewController {
                     let tallA = userData["talleresAprobados"] as? Int ?? 0
                     print("nombre: \(nombre) \nmatricula: \(matricula) \ncampus: \(campus) \ntallA \(tallA)")
                     // self.alumno = User(nombre: nombre, matricula: matricula, campus: campus, talleresAprobados: tallA)
+                    self.nombreAlumno.text = nombre
+                    self.matriculaAlumno.text = matricula
                   }
             }
         }
