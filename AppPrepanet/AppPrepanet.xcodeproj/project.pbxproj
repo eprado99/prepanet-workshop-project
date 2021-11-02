@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		360EEFCAF76EF20499434A90 /* Pods_AppPrepanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */; };
 		AF1A5DCB272F7F1300B51E02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */; };
 		AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */; };
+		AF69369E2731BC00003E307E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69369D2731BC00003E307E /* User.swift */; };
 		AF761DF3272AE36100958AAB /* TableViewControllerAWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */; };
 		AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */; };
 		AF761DF9272AE8A500958AAB /* ViewControllerPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */; };
@@ -29,6 +30,7 @@
 		84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.release.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.release.xcconfig"; sourceTree = "<group>"; };
 		AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlumnos.swift; sourceTree = "<group>"; };
+		AF69369D2731BC00003E307E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAWorkshop.swift; sourceTree = "<group>"; };
 		AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWorkshopCell.swift; sourceTree = "<group>"; };
 		AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerfil.swift; sourceTree = "<group>"; };
@@ -66,7 +68,6 @@
 				DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */,
 				84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,6 +110,7 @@
 				AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */,
 				AF777F50272F436D00E036F4 /* Workshop.swift */,
 				AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */,
+				AF69369D2731BC00003E307E /* User.swift */,
 				FB7EC65927232D590028F1C7 /* TableViewControllerTalleres.swift */,
 				FB7EC655272322D00028F1C7 /* ViewControllerVistaInicial.swift */,
 				FB7EC6272722FD040028F1C7 /* Assets.xcassets */,
@@ -242,6 +244,7 @@
 				FB7EC65A27232D590028F1C7 /* TableViewControllerTalleres.swift in Sources */,
 				FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */,
 				AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */,
+				AF69369E2731BC00003E307E /* User.swift in Sources */,
 				AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */,
 				AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */,
 				FB7EC6212722FD020028F1C7 /* SceneDelegate.swift in Sources */,

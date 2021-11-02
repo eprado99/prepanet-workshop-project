@@ -8,5 +8,6 @@ target 'AppPrepanet' do
   # Pods for AppPrepanet
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-
+  # pod 'FirebaseFirestoreSwift'
+  # pod 'FirebaseFirestoreSwift'
 end
