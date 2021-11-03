@@ -62,8 +62,9 @@ class ViewControllerAlumnos: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "perfilAlum"{
-            let vcPerfil = segue.destination as! ViewControllerPerfil
-            //vcPerfil.nombrePerf.text = nombreAlumno.text
+            let vcNavC = segue.destination as! UINavigationController
+            let vcPerfil = vcNavC.topViewController as! ViewControllerPerfil
+            vcPerfil.nombre = nombreAlumno.text
         } else {
             
         }

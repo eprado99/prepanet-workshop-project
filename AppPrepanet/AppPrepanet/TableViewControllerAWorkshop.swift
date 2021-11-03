@@ -122,12 +122,22 @@ class TableViewControllerAWorkshop: UITableViewController {
     
     // MARK: - Navigation
 
+    
+    @IBAction func regresarVCA(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vistaWorkshop = segue.destination as! ViewControllerWorkshop
-        
-        
-        let index = tableView.indexPathForSelectedRow!
-        vistaWorkshop.workshop = workshopArr[index.row]
+        if(segue.identifier == "vistaAlumFromWk"){
+            let vistaAlumWk = segue.destination as! ViewControllerAlumnos
+        } else{
+            
+            let vistaWorkshop = segue.destination as! ViewControllerWorkshop
+            let index = tableView.indexPathForSelectedRow!
+            vistaWorkshop.workshop = workshopArr[index.row]
+            
+        }
+
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

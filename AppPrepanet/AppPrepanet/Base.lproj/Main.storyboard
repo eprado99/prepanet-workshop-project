@@ -89,13 +89,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A0XXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJM-2N-nfi">
-                                <rect key="frame" x="26" y="106.5" width="163" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LLM-c0-5Cu">
                                 <rect key="frame" x="249" y="40.5" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,7 +109,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Perfil:" destination="j6w-AS-ndG" eventType="touchUpInside" id="CNx-0c-tzS"/>
-                                    <segue destination="96U-Kl-zeg" kind="presentation" identifier="perfilAlum" modalPresentationStyle="fullScreen" id="bui-K0-hSb"/>
+                                    <segue destination="mmC-CD-qBq" kind="presentation" identifier="perfilAlum" modalPresentationStyle="fullScreen" id="bui-K0-hSb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXe-3F-yLL">
@@ -131,6 +124,20 @@
                                     <segue destination="MrV-IZ-jRK" kind="presentation" identifier="talleres" modalPresentationStyle="fullScreen" id="0BP-Ic-0oZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A0XXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJM-2N-nfi">
+                                <rect key="frame" x="26" y="83" width="163" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campus Monterrey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kf-aC-j0b">
+                                <rect key="frame" x="26" y="125" width="231" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3lx-vR-sI0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -197,12 +204,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="AcL-ha-u4N">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrowshape.turn.up.backward" catalog="system" id="XAA-yV-74K"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrowshape.turn.up.backward" catalog="system" id="XAA-yV-74K">
+                            <connections>
+                                <action selector="regresarVCA:" destination="hop-Xg-m3e" id="o4y-Bn-sKy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9x-kd-0xB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048.8000000000002" y="-743.47826086956525"/>
+            <point key="canvasLocation" x="2975" y="-806"/>
         </scene>
         <!--View Controller Workshop-->
         <scene sceneID="SCh-so-5dP">
@@ -279,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx3-Wc-nuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3972" y="-743.47826086956525"/>
+            <point key="canvasLocation" x="3982" y="-806"/>
         </scene>
         <!--View Controller Vista Inicial-->
         <scene sceneID="bda-d8-DVw">
@@ -386,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgT-jq-Y3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3599" y="693"/>
+            <point key="canvasLocation" x="4536.8000000000002" y="692.20389805097454"/>
         </scene>
         <!--View Controller Perfil-->
         <scene sceneID="nAb-Aw-qNN">
@@ -404,7 +415,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GM-rh-BNb">
-                                <rect key="frame" x="16" y="43" width="343" height="21"/>
+                                <rect key="frame" x="16" y="117" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -414,13 +425,14 @@
                         <viewLayoutGuide key="safeArea" id="SO0-aE-U30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="U1Z-j7-HWS"/>
                     <connections>
                         <outlet property="nombrePerf" destination="8GM-rh-BNb" id="9Zb-DF-FAt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxw-rg-oUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2181.5999999999999" y="162.3688155922039"/>
+            <point key="canvasLocation" x="3149.5999999999999" y="156.97151424287858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g17-mI-ubu">
@@ -460,7 +472,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6L-bI-2jY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109.5999999999999" y="-743.47826086956525"/>
+            <point key="canvasLocation" x="2001" y="-806"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DL1-DY-SUX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mmC-CD-qBq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kIX-6Q-aDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="96U-Kl-zeg" kind="relationship" relationship="rootViewController" id="fgf-qh-LY5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUW-74-cRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208.8000000000002" y="156.97151424287858"/>
         </scene>
     </scenes>
     <resources>

@@ -8,11 +8,14 @@
 import UIKit
 
 class ViewControllerPerfil: UIViewController {
-
+    var nombre : String!
     @IBOutlet weak var nombrePerf: UILabel!
+    
+    @IBOutlet weak var navBar: UINavigationBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Perfil"
+        nombrePerf.text = nombre
         // Do any additional setup after loading the view.
     }
     
