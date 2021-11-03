@@ -116,7 +116,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Perfil:" destination="j6w-AS-ndG" eventType="touchUpInside" id="CNx-0c-tzS"/>
-                                    <segue destination="96U-Kl-zeg" kind="presentation" modalPresentationStyle="fullScreen" id="bui-K0-hSb"/>
+                                    <segue destination="96U-Kl-zeg" kind="presentation" identifier="perfilAlum" modalPresentationStyle="fullScreen" id="bui-K0-hSb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXe-3F-yLL">
@@ -128,7 +128,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Talleres:" destination="j6w-AS-ndG" eventType="touchUpInside" id="dtm-h2-vFH"/>
-                                    <segue destination="MrV-IZ-jRK" kind="presentation" modalPresentationStyle="fullScreen" id="0BP-Ic-0oZ"/>
+                                    <segue destination="MrV-IZ-jRK" kind="presentation" identifier="talleres" modalPresentationStyle="fullScreen" id="0BP-Ic-0oZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -395,13 +395,32 @@
                     <view key="view" contentMode="scaleToFill" id="HBb-eY-rka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Talleres inscritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y70-n2-ksr">
+                                <rect key="frame" x="16" y="291" width="244" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GM-rh-BNb">
+                                <rect key="frame" x="16" y="43" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="SO0-aE-U30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="nombrePerf" destination="8GM-rh-BNb" id="9Zb-DF-FAt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxw-rg-oUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2182" y="163"/>
+            <point key="canvasLocation" x="2181.5999999999999" y="162.3688155922039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g17-mI-ubu">

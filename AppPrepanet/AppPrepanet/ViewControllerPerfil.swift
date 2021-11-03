@@ -9,6 +9,7 @@ import UIKit
 
 class ViewControllerPerfil: UIViewController {
 
+    @IBOutlet weak var nombrePerf: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
