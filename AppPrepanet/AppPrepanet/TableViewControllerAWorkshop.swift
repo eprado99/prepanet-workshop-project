@@ -15,12 +15,7 @@ class TableViewControllerAWorkshop: UITableViewController {
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     
-    var workshopArr : [Workshop] = [
-        Workshop(title: "prueba1", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba2", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba3", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
-        Workshop(title: "prueba4", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum")
-    ]
+    var workshopArr : [Workshop] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

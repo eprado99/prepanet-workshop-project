@@ -16,6 +16,7 @@ class ViewControllerPerfil: UIViewController {
         super.viewDidLoad()
         title = "Perfil"
         nombrePerf.text = nombre
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         //let button = backButton.customView as! UIButton
         //button.setTitle("Back", for: .normal)
         //navigationItem.backBarButtonItem = UIBarButtonItem(title: "Something Else", style: .plain, target: nil, action: nil)
