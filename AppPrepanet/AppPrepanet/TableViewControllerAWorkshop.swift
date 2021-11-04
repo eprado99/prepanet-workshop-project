@@ -13,6 +13,8 @@ class TableViewControllerAWorkshop: UITableViewController {
     
     var db: Firestore!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     var workshopArr : [Workshop] = [
         Workshop(title: "prueba1", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
         Workshop(title: "prueba2", descr: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"),
@@ -23,6 +25,7 @@ class TableViewControllerAWorkshop: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backButton.title = "Back"
         let settings = FirestoreSettings()
         
         Firestore.firestore().settings = settings

@@ -145,6 +145,7 @@
                     <navigationItem key="navigationItem" id="COr-Fg-Fs7"/>
                     <connections>
                         <outlet property="btWorkshop" destination="EXe-3F-yLL" id="L2o-9P-pbh"/>
+                        <outlet property="campusAlumno" destination="7kf-aC-j0b" id="gBH-oj-cO4"/>
                         <outlet property="matriculaAlumno" destination="wJM-2N-nfi" id="Rot-VH-Z2f"/>
                         <outlet property="nombreAlumno" destination="fyL-UE-IzP" id="msl-lK-S8T"/>
                     </connections>
@@ -204,12 +205,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="AcL-ha-u4N">
-                        <barButtonItem key="leftBarButtonItem" title="Back" image="arrowshape.turn.up.backward" catalog="system" id="XAA-yV-74K">
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.backward" catalog="system" id="XAA-yV-74K">
                             <connections>
                                 <action selector="regresarVCA:" destination="hop-Xg-m3e" id="o4y-Bn-sKy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="XAA-yV-74K" id="Csf-5c-Glz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9x-kd-0xB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -425,8 +429,16 @@
                         <viewLayoutGuide key="safeArea" id="SO0-aE-U30"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U1Z-j7-HWS"/>
+                    <navigationItem key="navigationItem" id="U1Z-j7-HWS">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="IUw-5l-BxA"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" image="chevron.backward" catalog="system" id="kgM-V5-Vfq">
+                            <connections>
+                                <action selector="dismissVCP:" destination="96U-Kl-zeg" id="w0C-dY-nkN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="kgM-V5-Vfq" id="2fO-hq-oRP"/>
                         <outlet property="nombrePerf" destination="8GM-rh-BNb" id="9Zb-DF-FAt"/>
                     </connections>
                 </viewController>
@@ -494,7 +506,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.backward" catalog="system" width="128" height="106"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="logoPrepanet" width="2269" height="592"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">

@@ -14,6 +14,8 @@ class ViewControllerAlumnos: UIViewController {
     var matricula: String!
     @IBOutlet weak var nombreAlumno: UILabel!
     @IBOutlet weak var matriculaAlumno: UILabel!
+    @IBOutlet weak var campusAlumno: UILabel!
+    
     
     // let user : User = getAlumno(matricula)
     // var contra : String = "prueba123"
@@ -50,6 +52,7 @@ class ViewControllerAlumnos: UIViewController {
                     // self.alumno = User(nombre: nombre, matricula: matricula, campus: campus, talleresAprobados: tallA)
                     self.nombreAlumno.text = nombre
                     self.matriculaAlumno.text = matricula
+                    self.campusAlumno.text = campus
                   }
             }
         }
@@ -65,6 +68,7 @@ class ViewControllerAlumnos: UIViewController {
             let vcNavC = segue.destination as! UINavigationController
             let vcPerfil = vcNavC.topViewController as! ViewControllerPerfil
             vcPerfil.nombre = nombreAlumno.text
+            
         } else {
             
         }
