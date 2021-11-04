@@ -19,6 +19,8 @@ class ViewControllerWorkshop: UIViewController {
         super.viewDidLoad()
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
+        lbTitle.textAlignment = .center
+        
         // Do any additional setup after loading the view.
     }
     

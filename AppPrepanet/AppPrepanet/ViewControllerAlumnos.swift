@@ -15,6 +15,8 @@ class ViewControllerAlumnos: UIViewController {
     @IBOutlet weak var nombreAlumno: UILabel!
     @IBOutlet weak var matriculaAlumno: UILabel!
     @IBOutlet weak var campusAlumno: UILabel!
+    @IBOutlet weak var BtTalleres: UIButton!
+    @IBOutlet weak var BtPerfil: UIButton!
     
     
     // let user : User = getAlumno(matricula)
@@ -29,6 +31,9 @@ class ViewControllerAlumnos: UIViewController {
         db = Firestore.firestore()
         
         getAlumno(matricula: self.matricula)
+        
+        BtTalleres.layer.cornerRadius = 40
+        BtPerfil.layer.cornerRadius = 40
         // Do any additional setup after loading the view.
     }
     
