@@ -24,7 +24,9 @@ class ViewControllerWorkshop: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    // logica de inscripcion
+    // vars:
     /*
     // MARK: - Navigation
 
