@@ -2,7 +2,7 @@
 //  ViewControllerWorkshop.swift
 //  AppPrepanet
 //
-//  Created by Emilio Fernando Prado Chible on 31/10/21.
+//  Created by Emilio Fernando Prado Chible y Jose Andres Villarreal on 31/10/21.
 //
 
 import UIKit
