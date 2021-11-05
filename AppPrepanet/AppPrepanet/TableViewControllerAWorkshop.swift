@@ -19,7 +19,7 @@ class TableViewControllerAWorkshop: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Talleres"
         backButton.title = "Back"
         let settings = FirestoreSettings()
         

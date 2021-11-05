@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
 
+    private func getUserRole(key: String){
+        
+    }
     @IBAction func quitaTeclado(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
