@@ -2,7 +2,7 @@
 //  ViewControllerPerfil.swift
 //  AppPrepanet
 //
-//  Created by Emilio Fernando Prado Chible on 28/10/21.
+//  Created by Emilio Fernando Prado Chible y Jose Andres Villarreal on 28/10/21.
 //
 
 import UIKit
@@ -19,6 +19,7 @@ class ViewControllerPerfil: UIViewController {
     @IBOutlet weak var correoCoord: UILabel!
     @IBOutlet weak var nombrePerf: UILabel!
     @IBOutlet weak var campusPerf: UILabel!
+    
 
     @IBOutlet weak var backButton: UIBarButtonItem!
     override func viewDidLoad() {
