@@ -12,7 +12,7 @@ import FirebaseFirestore
 class TableViewControllerAWorkshop: UITableViewController {
     
     var db: Firestore!
-    
+    var matricula: String!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     var workshopArr : [Workshop] = []
@@ -128,15 +128,12 @@ class TableViewControllerAWorkshop: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "vistaAlumFromWk"){
-            let vistaAlumWk = segue.destination as! ViewControllerAlumnos
-        } else{
+
             
-            let vistaWorkshop = segue.destination as! ViewControllerWorkshop
-            let index = tableView.indexPathForSelectedRow!
-            vistaWorkshop.workshop = workshopArr[index.row]
+        let vistaWorkshop = segue.destination as! ViewControllerWorkshop
+        let index = tableView.indexPathForSelectedRow!
+        vistaWorkshop.workshop = workshopArr[index.row]
             
-        }
 
         
         // Get the new view controller using segue.destination.

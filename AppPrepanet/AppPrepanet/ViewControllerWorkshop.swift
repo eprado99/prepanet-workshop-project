@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewControllerWorkshop: UIViewController {
+class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    
 
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbAbout: UILabel!
-    @IBOutlet weak var lbReq: UILabel!
     
     var workshop : Workshop!
     
@@ -24,10 +25,17 @@ class ViewControllerWorkshop: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workshop.req.count
+    }
     
-    // logica de inscripcion
-    // vars:
-    /*
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = workshop.req[indexPath.row]
+        
+        return cell
+    }    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
