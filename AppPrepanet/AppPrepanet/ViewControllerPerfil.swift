@@ -37,7 +37,7 @@ class ViewControllerPerfil: UIViewController {
         getAlumno(campus: campus)
         
         // Styling
-        drawSeparator(xCoor: 10, yCoor: 230)
+        drawSeparator(xCoor: 10, yCoor: 260)
         drawSeparator(xCoor: 10, yCoor: 420)
         
         
