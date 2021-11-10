@@ -17,6 +17,7 @@
 		AF777F51272F436D00E036F4 /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F50272F436D00E036F4 /* Workshop.swift */; };
 		AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */; };
 		AF83856C273445270014860D /* Inscripcion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83856B273445270014860D /* Inscripcion.swift */; };
+		E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */; };
 		FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */; };
 		FB7EC6212722FD020028F1C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */; };
 		FB7EC6232722FD020028F1C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC6222722FD020028F1C7 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 		AF83856B273445270014860D /* Inscripcion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscripcion.swift; sourceTree = "<group>"; };
 		DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppPrepanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.debug.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.debug.xcconfig"; sourceTree = "<group>"; };
+		E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerArchivo.swift; sourceTree = "<group>"; };
 		FB7EC61B2722FD020028F1C7 /* AppPrepanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPrepanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */,
 				FB7EC6222722FD020028F1C7 /* ViewController.swift */,
 				FB7EC6242722FD020028F1C7 /* Main.storyboard */,
+				E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */,
 				AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */,
 				AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */,
 				AF83856B273445270014860D /* Inscripcion.swift */,
@@ -250,6 +253,7 @@
 				AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */,
 				AF69369E2731BC00003E307E /* User.swift in Sources */,
 				AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */,
+				E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */,
 				AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */,
 				FB7EC6212722FD020028F1C7 /* SceneDelegate.swift in Sources */,
 			);

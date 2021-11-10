@@ -368,6 +368,7 @@
                                     <action selector="ObtenArchivo:" destination="j6w-AS-ndG" eventType="touchUpInside" id="UJO-Wd-l4y"/>
                                     <action selector="Perfil:" destination="j6w-AS-ndG" eventType="touchUpInside" id="Z1l-RU-0GO"/>
                                     <action selector="Reporte:" destination="j6w-AS-ndG" eventType="touchUpInside" id="yfd-fH-Icn"/>
+                                    <segue destination="kks-St-bsm" kind="presentation" identifier="archivo" id="IMT-NB-Vbe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A0XXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D2-lI-0Bb">
@@ -407,6 +408,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="381-Va-cU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="952.17391304347836"/>
+        </scene>
+        <!--View Controller Archivo-->
+        <scene sceneID="eDG-pj-040">
+            <objects>
+                <viewController id="kks-St-bsm" customClass="ViewControllerArchivo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UOs-ya-1cK" customClass="UIViewControllerVistaArchivo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="866-ad-9AY">
+                                <rect key="frame" x="166" y="96" width="43" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c0c-n5-5WX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Uf-rV-6dK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="1759.9700149925038"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="GaU-Ux-SP8">
@@ -640,6 +663,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="logoPrepanet" width="2269" height="592"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
