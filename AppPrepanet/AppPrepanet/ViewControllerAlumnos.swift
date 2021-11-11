@@ -11,7 +11,6 @@ import FirebaseFirestore
 class ViewControllerAlumnos: UIViewController {
     
     var db: Firestore!
-    var userDB : User!
     var matriculaA: String!
     var campusA: String!
     @IBOutlet weak var nombreAlumno: UILabel!
@@ -31,18 +30,12 @@ class ViewControllerAlumnos: UIViewController {
         Firestore.firestore().settings = settings
         
         db = Firestore.firestore()
-        print(matriculaA)
+        
         getAlumno(matricula: self.matriculaA)
         
         BtTalleres.layer.cornerRadius = 40
         BtPerfil.layer.cornerRadius = 40
         // Do any additional setup after loading the view.
-        /*
-        nombreAlumno.text = userDB.nombre
-        matriculaAlumno.text = userDB.matriculaID
-        campusAlumno.text = "Campus " + userDB.campus
-        campusA = userDB.campus
- */
     }
     
     private func getAlumno(matricula : String) {
@@ -50,23 +43,25 @@ class ViewControllerAlumnos: UIViewController {
         let key = matricula
         let userDoc = db.collection("Usuarios").whereField("matricula", isEqualTo: key)
         userDoc.getDocuments { (querySnapshot, err) in
-            if err != nil {
+            if let err = err {
+                print("ERROR! No user with such ID. \(err)")
+            } else if querySnapshot!.documents.count != 1 {
+                print("more than 1 doc")
+            } else {
                 if let document = querySnapshot!.documents.first {
                     let userData = document.data()
                     let nombre = userData["nombre"] as? String ?? ""
                     let matricula = userData["matricula"] as? String ?? ""
                     let campus = userData["campus"] as? String ?? ""
+                    //let tallA = userData["talleresAprobados"] as? Int ?? 0
+                    print("nombre: \(nombre) \nmatricula: \(matricula) \ncampus: \(campus)")
+                    // self.alumno = User(nombre: nombre, matricula: matricula, campus: campus, talleresAprobados: tallA)
                     self.nombreAlumno.text = nombre
                     self.matriculaAlumno.text = matricula
                     self.campusAlumno.text = "Campus " + campus
                     self.campusA = campus
-                }
-
-                
-            } else {
-                print("error \(err)")
+                  }
             }
-            
         }
     }
     

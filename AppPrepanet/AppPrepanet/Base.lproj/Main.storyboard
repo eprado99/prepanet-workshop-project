@@ -38,7 +38,7 @@
                                 <rect key="frame" x="45" y="230" width="284" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*************" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUP-oA-hdM">
                                 <rect key="frame" x="45" y="390" width="284" height="41"/>
@@ -55,7 +55,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GNd-7g-RO7" kind="presentation" identifier="Alumno" modalPresentationStyle="fullScreen" id="1KX-JF-P0g"/>
+                                    <segue destination="GNd-7g-RO7" kind="presentation" modalPresentationStyle="fullScreen" id="oxu-2O-5x6"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -7,10 +7,8 @@
 
 import UIKit
 
-// codable, identifiable
 class Workshop: NSObject {
 
-    // var id: String
     var title: String
     var descr: String
     var req: [String]

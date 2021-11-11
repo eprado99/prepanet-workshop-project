@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import FirebaseFirestoreSwift
+
 class Inscripcion: NSObject {
     //var id: String = UUID().uuidString
     //var WkID: String = UUID().uuidString
@@ -22,14 +22,4 @@ class Inscripcion: NSObject {
         self.date = date
         self.status = status
     }
-    /*
-    enum CodingKeys: String, CodingKey {
-        case name
-        case state
-        case country
-        case population
-    }
-    
-    init(
-    */
 }

@@ -8,8 +8,10 @@
 import UIKit
 
 class User: NSObject {
+    
     var nombre : String
-    var matriculaID : String
+    var matricula : String
+    var email : String
     var campus : String
     var rol : String
     /*
@@ -20,15 +22,16 @@ class User: NSObject {
         self.talleresAprobados = 0
     }
     */
-    init(nombre: String, matriculaID: String, campus: String, rol: String){
+    init(nombre: String, email: String, matricula: String, campus: String, rol: String){
         self.nombre = nombre
-        self.matriculaID = matriculaID
+        self.matricula = matricula
         self.campus = campus
+        self.email = email
         self.rol = rol
     }
 }
 
 // MARK: - Docs
 // El ID del usuario es la matricula
-// Un usuario contiene "nombre", "campus", "email" y "rol"
+// Un usuario contiene "nombre", "matricula", "campus", "email" y "rol"
 // Roles de usuario: ["Alumno", "Coord", "Admin"]

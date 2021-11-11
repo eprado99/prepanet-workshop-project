@@ -55,8 +55,7 @@ class ViewControllerPerfil: UIViewController {
     private func getAlumno(campus : String) {
         // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
         let key = campus
-        let userDoc = db.collection("Usuarios")
-            .whereField("campus", isEqualTo: key)
+        let userDoc = db.collection("Usuarios").whereField("campus", isEqualTo: key)
             .whereField("rol", isEqualTo: "Coord")
         userDoc.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -67,7 +66,7 @@ class ViewControllerPerfil: UIViewController {
                 if let document = querySnapshot!.documents.first {
                     let userData = document.data()
                     let nombreCoordDB = userData["nombre"] as? String ?? ""
-                    let correoCoordDB = userData["correo"] as? String ?? ""
+                    let correoCoordDB = userData["email"] as? String ?? ""
                     
                     self.nomCoord.text = nombreCoordDB
                     self.correoCoord.text = correoCoordDB
@@ -75,6 +74,12 @@ class ViewControllerPerfil: UIViewController {
             }
         }
     }
+    
+    /*
+     let userDoc = db.collection("Usuarios")
+           .whereField("campus", isEqualTo: key)
+           .whereField("rol", isEqualTo: "Coord")
+     */
     // MARK: - Navigation
     
     

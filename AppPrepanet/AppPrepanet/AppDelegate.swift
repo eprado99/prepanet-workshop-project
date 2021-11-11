@@ -40,11 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-/*
- 
- let alerta = UIAlertController(title: "Error", message: "usuario o password incorrectos", preferredStyle: .alert)
-             let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-             alerta.addAction(accion)
-             present(alerta, animated: true, completion: nil)
-
- */
