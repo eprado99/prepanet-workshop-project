@@ -81,6 +81,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF2757BB273C49190008D7A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFF1EA06273C36EA00339551 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */,
+				FB7EC6222722FD020028F1C7 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		FB7EC6122722FD020028F1C7 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +118,11 @@
 		FB7EC61D2722FD020028F1C7 /* AppPrepanet */ = {
 			isa = PBXGroup;
 			children = (
+				AF2757BB273C49190008D7A5 /* Controller */,
 				FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */,
 				FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */,
-				FB7EC6222722FD020028F1C7 /* ViewController.swift */,
+				AFF1EA06273C36EA00339551 /* View Controllers */,
 				FB7EC6242722FD020028F1C7 /* Main.storyboard */,
-				AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */,
 				AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */,
 				AF83856B273445270014860D /* Inscripcion.swift */,
 				AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */,

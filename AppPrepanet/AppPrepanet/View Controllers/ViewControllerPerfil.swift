@@ -55,7 +55,9 @@ class ViewControllerPerfil: UIViewController {
     private func getAlumno(campus : String) {
         // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
         let key = campus
-        let userDoc = db.collection("Coordinadores").whereField("campus", isEqualTo: key)
+        let userDoc = db.collection("Usuarios")
+            .whereField("campus", isEqualTo: key)
+            .whereField("rol", isEqualTo: "Coord")
         userDoc.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("ERROR! No user with such ID. \(err)")

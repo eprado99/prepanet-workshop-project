@@ -36,6 +36,8 @@ class ViewControllerVistaInicial: UIViewController {
         getCoordinador(campus: campus)
     }
     
+    // registros dummy agarras arreglo -> string separado con commas
+    // usar funcionalidad share
     private func getCoordinador(campus : String) {
         // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
         let key = campus

@@ -7,8 +7,10 @@
 
 import UIKit
 
+// codable, identifiable
 class Workshop: NSObject {
 
+    // var id: String
     var title: String
     var descr: String
     var req: [String]
@@ -20,3 +22,8 @@ class Workshop: NSObject {
     }
     
 }
+
+// MARK: - Docs
+// El ID del taller decide en que orden se muestran (1,2,3...)
+// Un taller consiste de "titulo", "descripcion" y "requerimientos".
+// "requerimientos" es un array de Strings
