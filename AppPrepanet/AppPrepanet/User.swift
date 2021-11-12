@@ -11,8 +11,9 @@ class User: NSObject {
     
     var nombre : String
     var matricula : String
+    var email : String
     var campus : String
-    var talleresAprobados : Int
+    var rol : String
     /*
     init() {
         self.nombre = ""
@@ -21,10 +22,16 @@ class User: NSObject {
         self.talleresAprobados = 0
     }
     */
-    init(nombre: String, matricula: String, campus: String, talleresAprobados: Int){
+    init(nombre: String, email: String, matricula: String, campus: String, rol: String){
         self.nombre = nombre
         self.matricula = matricula
         self.campus = campus
-        self.talleresAprobados = talleresAprobados
+        self.email = email
+        self.rol = rol
     }
 }
+
+// MARK: - Docs
+// El ID del usuario es la matricula
+// Un usuario contiene "nombre", "matricula", "campus", "email" y "rol"
+// Roles de usuario: ["Alumno", "Coord", "Admin"]
