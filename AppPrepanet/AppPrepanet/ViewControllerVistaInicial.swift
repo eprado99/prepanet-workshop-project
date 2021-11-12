@@ -10,11 +10,13 @@ import FirebaseFirestore
 class ViewControllerVistaInicial: UIViewController {
     
     var db: Firestore!
-    var campus: String!
+    var nomina: String!
+    
     @IBOutlet weak var btTalleres: UIButton!
-    @IBOutlet weak var btPerfil: UIButton!
     @IBOutlet weak var btAlumnos: UIButton!
     @IBOutlet weak var btArchivo: UIButton!
+    @IBOutlet weak var btPerfil: UIButton!
+    
     
     @IBOutlet weak var nombreCoord: UILabel!
     @IBOutlet weak var matriculaCoord: UILabel!
@@ -33,13 +35,13 @@ class ViewControllerVistaInicial: UIViewController {
         
         db = Firestore.firestore()
         
-        getCoordinador(campus: campus)
+        getCoordinador(nomina: self.nomina)
     }
     
-    private func getCoordinador(campus : String) {
+    private func getCoordinador(nomina : String) {
         // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
-        let key = campus
-        let userDoc = db.collection("Coordinadores").whereField("campus", isEqualTo: key)
+        let key = nomina
+        let userDoc = db.collection("Usuarios").whereField("email", isEqualTo: key)
         userDoc.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("ERROR! No user with such ID. \(err)")
@@ -50,6 +52,8 @@ class ViewControllerVistaInicial: UIViewController {
                     let userData = document.data()
                     let nombreCoordDB = userData["nombre"] as? String ?? ""
                     let matriculaCoordDB = userData["matricula"] as? String ?? ""
+                    let campus = userData["campus"] as? String ?? ""
+
                     
                     self.nombreCoord.text = nombreCoordDB
                     self.matriculaCoord.text = matriculaCoordDB
@@ -58,17 +62,7 @@ class ViewControllerVistaInicial: UIViewController {
             }
         }
     }
-    @IBAction func Talleres(_ sender: UIButton) {
-    }
-    
-    @IBAction func Perfil(_ sender: UIButton) {
-    }
-    
-    @IBAction func RevisaAlumnos(_ sender: UIButton) {
-    }
-    
-    @IBAction func ObtenArchivo(_ sender: UIButton) {
-    }
+
     /*
     // MARK: - Navigation
 

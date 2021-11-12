@@ -39,31 +39,28 @@ class ViewControllerAlumnos: UIViewController {
     }
     
     private func getAlumno(matricula : String) {
-        // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
-        let key = matricula
-        let userDoc = db.collection("Estudiantes").whereField("matricula", isEqualTo: key)
-        userDoc.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("ERROR! No user with such ID. \(err)")
-            } else if querySnapshot!.documents.count != 1 {
-                print("more than 1 doc")
-            } else {
-                if let document = querySnapshot!.documents.first {
-                    let userData = document.data()
-                    let nombre = userData["nombre"] as? String ?? ""
-                    let matricula = userData["matricula"] as? String ?? ""
-                    let campus = userData["campus"] as? String ?? ""
-                    let tallA = userData["talleresAprobados"] as? Int ?? 0
-                    print("nombre: \(nombre) \nmatricula: \(matricula) \ncampus: \(campus) \ntallA \(tallA)")
-                    // self.alumno = User(nombre: nombre, matricula: matricula, campus: campus, talleresAprobados: tallA)
-                    self.nombreAlumno.text = nombre
-                    self.matriculaAlumno.text = matricula
-                    self.campusAlumno.text = "Campus " + campus
-                    self.campusA = campus
-                  }
+            // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
+            let key = matricula
+            let userDoc = db.collection("Usuarios").whereField("email", isEqualTo: key)
+            userDoc.getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("ERROR! No user with such ID. \(err)")
+                } else if querySnapshot!.documents.count != 1 {
+                    print("more than 1 doc")
+                } else {
+                    if let document = querySnapshot!.documents.first {
+                        let userData = document.data()
+                        let nombre = userData["nombre"] as? String ?? ""
+                        let matricula = userData["matricula"] as? String ?? ""
+                        let campus = userData["campus"] as? String ?? ""
+                        self.nombreAlumno.text = nombre
+                        self.matriculaAlumno.text = matricula
+                        self.campusAlumno.text = "Campus " + campus
+                        self.campusA = campus
+                      }
+                }
             }
         }
-    }
     
     // MARK: - Navigation
 
