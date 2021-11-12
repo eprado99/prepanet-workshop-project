@@ -18,6 +18,7 @@ class ViewControllerVistaInicial: UIViewController {
     @IBOutlet weak var btPerfil: UIButton!
     
     
+    
     @IBOutlet weak var nombreCoord: UILabel!
     @IBOutlet weak var matriculaCoord: UILabel!
     @IBOutlet weak var campusCoord: UILabel!

@@ -63,7 +63,7 @@ class ViewControllerAlumnos: UIViewController {
                   }
             }
         }
-    
+    }
     // MARK: - Navigation
 
     

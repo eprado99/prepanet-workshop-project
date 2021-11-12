@@ -55,7 +55,7 @@ class ViewController: UIViewController {
     }*/
     
     
-    @IBAction func btLogin(_ sender: UIButton) {
+    @IBAction func btEntrar(_ sender: UIButton) {
         if let user = tfUser.text,
            let pass = tfPassword.text{
             getRol(matricula: tfUser.text!)
