@@ -9,16 +9,7 @@ import UIKit
 
 class ViewControllerArchivo: UIViewController {
     
-    
-    init(activityItems: [Any], appActivities: [UIActivity]?){
-        
-    }
-    
-    lazy var arregloDummy : [String] = ["Nombre", "Matricula", "Campus"]
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var arregloDummy : [String] = ["Nombre", "Matricula", "Campus"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +17,19 @@ class ViewControllerArchivo: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    let datosUsuario = arregloDummy.joined(separator: ",")
-    let share = [datosUsuario] as [Any]
-    let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
     
-    //para iPad
-    //activityViewController.popoverPresentationController?.sourceView = self.view
-    //para iPhone y iPod
-    self.present(activityViewController, animated: true, completion: nil)
+    @IBAction func bttShare(sender: [AnyObject]) {
+        let datosUsuario = arregloDummy.joined(separator: ",")
+        let share = [datosUsuario] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
+        
+        //para iPad
+        //activityViewController.popoverPresentationController?.sourceView = self.view
+        //para iPhone y iPod
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
 
     /*
     // MARK: - Navigation

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		360EEFCAF76EF20499434A90 /* Pods_AppPrepanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */; };
-		AF1A5DCB272F7F1300B51E02 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */; };
 		AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */; };
 		AF69369E2731BC00003E307E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF69369D2731BC00003E307E /* User.swift */; };
 		AF761DF3272AE36100958AAB /* TableViewControllerAWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */; };
@@ -17,6 +16,7 @@
 		AF777F51272F436D00E036F4 /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F50272F436D00E036F4 /* Workshop.swift */; };
 		AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */; };
 		AF83856C273445270014860D /* Inscripcion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83856B273445270014860D /* Inscripcion.swift */; };
+		E0084722273E3D270071AB04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0084721273E3D260071AB04 /* GoogleService-Info.plist */; };
 		E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */; };
 		FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */; };
 		FB7EC6212722FD020028F1C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */; };
@@ -30,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		84CA4FF19EFFBD53E131897C /* Pods-AppPrepanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.release.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.release.xcconfig"; sourceTree = "<group>"; };
-		AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF523766272A457D00FAE261 /* ViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAlumnos.swift; sourceTree = "<group>"; };
 		AF69369D2731BC00003E307E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAWorkshop.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		AF83856B273445270014860D /* Inscripcion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscripcion.swift; sourceTree = "<group>"; };
 		DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppPrepanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.debug.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.debug.xcconfig"; sourceTree = "<group>"; };
+		E0084721273E3D260071AB04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerArchivo.swift; sourceTree = "<group>"; };
 		FB7EC61B2722FD020028F1C7 /* AppPrepanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppPrepanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				FB7EC655272322D00028F1C7 /* ViewControllerVistaInicial.swift */,
 				FB7EC6272722FD040028F1C7 /* Assets.xcassets */,
 				FB7EC6292722FD040028F1C7 /* LaunchScreen.storyboard */,
-				AF1A5DCA272F7F1300B51E02 /* GoogleService-Info.plist */,
+				E0084721273E3D260071AB04 /* GoogleService-Info.plist */,
 				FB7EC62C2722FD040028F1C7 /* Info.plist */,
 			);
 			path = AppPrepanet;
@@ -187,7 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB7EC62B2722FD040028F1C7 /* LaunchScreen.storyboard in Resources */,
-				AF1A5DCB272F7F1300B51E02 /* GoogleService-Info.plist in Resources */,
+				E0084722273E3D270071AB04 /* GoogleService-Info.plist in Resources */,
 				FB7EC6282722FD040028F1C7 /* Assets.xcassets in Resources */,
 				FB7EC6262722FD020028F1C7 /* Main.storyboard in Resources */,
 			);
