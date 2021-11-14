@@ -13,7 +13,7 @@ class ViewControllerAlumnos: UIViewController {
     var db: Firestore!
     var user: User!
     var matriculaA: String!
-    // var campusA: String!
+    
     @IBOutlet weak var nombreAlumno: UILabel!
     @IBOutlet weak var matriculaAlumno: UILabel!
     @IBOutlet weak var campusAlumno: UILabel!
@@ -21,8 +21,6 @@ class ViewControllerAlumnos: UIViewController {
     @IBOutlet weak var BtPerfil: UIButton!
     
     
-    // let user : User = getAlumno(matricula)
-    // var contra : String = "prueba123"
     @IBOutlet weak var btWorkshop: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +30,11 @@ class ViewControllerAlumnos: UIViewController {
         
         db = Firestore.firestore()
         
-        // getAlumno(matricula: self.matriculaA)
+
         print("\(user.nombre)")
         BtTalleres.layer.cornerRadius = 40
         BtPerfil.layer.cornerRadius = 40
-        // Do any additional setup after loading the view.
+
         setUIData()
         
     }
@@ -48,8 +46,6 @@ class ViewControllerAlumnos: UIViewController {
     }
     
     // MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Checa si el destino es la vista ViewControllerPerfil y le comparte el nombre del alumno

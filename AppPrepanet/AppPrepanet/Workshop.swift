@@ -13,12 +13,16 @@ class Workshop: NSObject {
     var title: String
     var descr: String
     var req: [String]
+    var startDate: Date
+    var endDate: Date
     
-    init(wkID: String, title: String, descr: String, req: [String]) {
+    init(wkID: String, title: String, descr: String, req: [String], startDate: Date, endDate: Date) {
         self.wkID = wkID
         self.title = title
         self.descr = descr
         self.req = req
+        self.startDate = startDate
+        self.endDate = endDate
     }
     
 }

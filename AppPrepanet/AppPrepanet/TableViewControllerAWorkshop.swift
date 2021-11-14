@@ -12,7 +12,6 @@ import FirebaseFirestore
 class TableViewControllerAWorkshop: UITableViewController {
     
     var db: Firestore!
-    // var matricula: String!
     var user: User!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -23,17 +22,48 @@ class TableViewControllerAWorkshop: UITableViewController {
         super.viewDidLoad()
         title = "Talleres"
         backButton.title = "Back"
+        
+        // Database
         let settings = FirestoreSettings()
-        
         Firestore.firestore().settings = settings
-        
         db = Firestore.firestore()
-        
         getWorkshops()
-        
         
     }
     
+
+
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workshopArr.count
+    }
+
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewWorkshopCell
+        let workshop = workshopArr[indexPath.row]
+        cell.lbTitle.text = workshop.title
+        cell.lbDescription.text = workshop.descr
+        return cell
+    }
+
+    // MARK: - Navigation
+    @IBAction func regresarVCA(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vistaWorkshop = segue.destination as! ViewControllerWorkshop
+        let index = tableView.indexPathForSelectedRow!
+        vistaWorkshop.workshop = workshopArr[index.row]
+        vistaWorkshop.user = user
+    }
+    
+    // MARK: - Database
     private func getWorkshops() {
         db.collection("Talleres").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -45,20 +75,10 @@ class TableViewControllerAWorkshop: UITableViewController {
                     let desBD = document.get("descripcion") as! String
                     let reqBD = document.get("requerimientos") as! [String]
                     let dates = document.get("wkDate") as! [Timestamp]
-                    
-                    //print("\(document.documentID) => \(document.data())")
-                    /*
-                    if let data = document.data() as? [String: Any]{
-                        for wk in data {
-                            guard let validWK = wk as? Dictionary<String, Any> else {
-                                continue
-                            }
-                            let tit = validWK["titulo"] as? String ?? "hola"
-                            let des = validWK["descripcion"] as? String ?? "hola"
-                            print("titulo: \(tit), descripcion: \(des)")
-                        }
-                        */
-                    
+                    let startDateBD : Date = dates[0].dateValue()
+                    let endDateBD : Date = dates[1].dateValue()
+
+                    // Formatting objects
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateStyle = .medium
                     dateFormatter.timeStyle = .short
@@ -75,20 +95,24 @@ class TableViewControllerAWorkshop: UITableViewController {
                     dateFormatter3.dateStyle = .none
                     dateFormatter3.timeStyle = .short
                     
-                    print(dateFormatter.string(from: dates[0].dateValue()))
-                    print(dateFormatter1.string(from: dates[0].dateValue()))
-                    print(dateFormatter2.string(from: dates[0].dateValue()), dateFormatter3.string(from: dates[0].dateValue()))
-                    print(dateFormatter2.string(from: dates[1].dateValue()), dateFormatter3.string(from: dates[1].dateValue()))
+                    // Formatting examples
+                    print("-----------------------------------")
+                    print(dateFormatter.string(from: startDateBD))
+                    print(dateFormatter1.string(from: startDateBD))
+                    print(dateFormatter2.string(from: startDateBD), dateFormatter3.string(from: startDateBD))
+                    print(dateFormatter2.string(from: endDateBD), dateFormatter3.string(from: endDateBD))
                     /*
+                     Todos los metodos asumen por default el current timeZone del usuario
                      Feb 14, 2022 at 9:00 AM (dateFormatter)
                      February 14, 2022 at 9:00:00 AM (dateFormatter1)
+                     dateFormatter2 y dateFormatter3 se usan para obtener la fecha y la hora por separado
                      Feb 14, 2022 9:00 AM (dateFormatter2, dateFormatter3)
                      Feb 18, 2022 1:00 PM (dateFormatter2, dateFormatter3)
                     */
 
                     // print data
                     // print("\(idBD) \(titBD) \(desBD)")
-                    self.workshopArr.append(Workshop(wkID: idBD, title: titBD, descr: desBD, req: reqBD))
+                    self.workshopArr.append(Workshop(wkID: idBD, title: titBD, descr: desBD, req: reqBD, startDate: startDateBD, endDate: endDateBD))
                     
                 }
                     
@@ -96,86 +120,7 @@ class TableViewControllerAWorkshop: UITableViewController {
             self.tableView.reloadData()
     }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return workshopArr.count
-    }
-
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewWorkshopCell
-        let workshop = workshopArr[indexPath.row]
-        cell.lbTitle.text = workshop.title
-        cell.lbDescription.text = workshop.descr
-        return cell
-    }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
-    // MARK: - Navigation
-
-    
-    @IBAction func regresarVCA(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-            
-        let vistaWorkshop = segue.destination as! ViewControllerWorkshop
-        let index = tableView.indexPathForSelectedRow!
-        vistaWorkshop.workshop = workshopArr[index.row]
-        vistaWorkshop.user = user
-            
-
-        
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
-
 }
 
 /*

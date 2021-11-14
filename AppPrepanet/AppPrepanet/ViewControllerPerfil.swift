@@ -2,7 +2,7 @@
 //  ViewControllerPerfil.swift
 //  AppPrepanet
 //
-//  Created by Emilio Fernando Prado Chible y Jose Andres Villarreal on 28/10/21.
+//  Created by Emilio Fernando Prado Chible on 28/10/21.
 //
 
 import UIKit
@@ -19,14 +19,14 @@ class ViewControllerPerfil: UIViewController {
     @IBOutlet weak var correoCoord: UILabel!
     @IBOutlet weak var nombrePerf: UILabel!
     @IBOutlet weak var campusPerf: UILabel!
-    
-
     @IBOutlet weak var backButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Perfil"
         nombrePerf.text = nombre
+        campusPerf.text = "Campus " + campus
         // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         
         // Database
@@ -40,8 +40,6 @@ class ViewControllerPerfil: UIViewController {
         drawSeparator(xCoor: 10, yCoor: 260)
         drawSeparator(xCoor: 10, yCoor: 420)
         
-        
-        campusPerf.text = "Campus " + campus
     }
     
     // MARK: - Styling
@@ -53,7 +51,6 @@ class ViewControllerPerfil: UIViewController {
     
     // MARK: - Database
     private func getAlumno(campus : String) {
-        // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
         let key = campus
         let userDoc = db.collection("Usuarios").whereField("campus", isEqualTo: key)
             .whereField("rol", isEqualTo: "Coord")
@@ -75,14 +72,7 @@ class ViewControllerPerfil: UIViewController {
         }
     }
     
-    /*
-     let userDoc = db.collection("Usuarios")
-           .whereField("campus", isEqualTo: key)
-           .whereField("rol", isEqualTo: "Coord")
-     */
     // MARK: - Navigation
-    
-    
     @IBAction func dismissVCP(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

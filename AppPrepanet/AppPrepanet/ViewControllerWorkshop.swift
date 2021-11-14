@@ -2,7 +2,7 @@
 //  ViewControllerWorkshop.swift
 //  AppPrepanet
 //
-//  Created by Emilio Fernando Prado Chible y Jose Andres Villarreal on 31/10/21.
+//  Created by Emilio Fernando Prado Chible on 31/10/21.
 //
 
 import UIKit
@@ -50,7 +50,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     */
 
     @IBAction func enrollBt(_ sender: UIButton) {
-        
+        enrollStudent()
     }
     
     
@@ -63,9 +63,11 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         // tallerID, campusID, matricula, status, Date
         let enrollData: [String: Any] = [
             
+            "Date" : workshop.startDate,
             "tallerID" : workshop.wkID,
             "campusID" : user.campus,
-            "matricula" : user.matricula
+            "matricula" : user.matricula,
+            "status" : "En Proceso"
             
         ]
         var ref: DocumentReference? = nil

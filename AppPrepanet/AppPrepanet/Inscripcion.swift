@@ -8,18 +8,19 @@
 import UIKit
 
 class Inscripcion: NSObject {
-    //var id: String = UUID().uuidString
-    //var WkID: String = UUID().uuidString
-    var campusID: Int // necesitamos el id o el nombre del campus
+    
+    var wkID: String
+    var campusID: String
     var matriculaAlum: String
     var date: Date
-    var status: Bool
-    // let periodo
+    var status: String
     
-    init(campusID : Int, matriculaAlum : String, date : Date, status: Bool){
+    init(wkID: String, campusID : String, matriculaAlum : String, date : Date){
+        self.date = date
         self.campusID = campusID
         self.matriculaAlum = matriculaAlum
-        self.date = date
-        self.status = status
+        self.status = "En Proceso"
+        self.wkID = wkID
     }
+    
 }

@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Navigation
     @IBAction func btEntrar(_ sender: UIButton) {
         if let user = tfUser.text,
            let pass = tfPassword.text{
@@ -87,6 +88,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Database
     private func getRol(matricula : String) {
             // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
             let key = matricula
