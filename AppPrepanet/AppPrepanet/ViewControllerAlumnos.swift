@@ -11,8 +11,9 @@ import FirebaseFirestore
 class ViewControllerAlumnos: UIViewController {
     
     var db: Firestore!
+    var user: User!
     var matriculaA: String!
-    var campusA: String!
+    // var campusA: String!
     @IBOutlet weak var nombreAlumno: UILabel!
     @IBOutlet weak var matriculaAlumno: UILabel!
     @IBOutlet weak var campusAlumno: UILabel!
@@ -31,11 +32,19 @@ class ViewControllerAlumnos: UIViewController {
         
         db = Firestore.firestore()
         
-        getAlumno(matricula: self.matriculaA)
-        
+        // getAlumno(matricula: self.matriculaA)
+        print("\(user.nombre)")
         BtTalleres.layer.cornerRadius = 40
         BtPerfil.layer.cornerRadius = 40
         // Do any additional setup after loading the view.
+        setUIData()
+        
+    }
+    
+    private func setUIData(){
+        self.nombreAlumno.text = user.nombre
+        self.matriculaAlumno.text = user.matricula
+        self.campusAlumno.text = "Campus " + user.campus
     }
     
     private func getAlumno(matricula : String) {
@@ -59,7 +68,7 @@ class ViewControllerAlumnos: UIViewController {
                     self.nombreAlumno.text = nombre
                     self.matriculaAlumno.text = matricula
                     self.campusAlumno.text = "Campus " + campus
-                    self.campusA = campus
+                    //self.campusA = campus
                   }
             }
         }
@@ -75,11 +84,11 @@ class ViewControllerAlumnos: UIViewController {
             let vcPerfil = vcNavC.topViewController as! ViewControllerPerfil
             vcPerfil.nombre = nombreAlumno.text
             vcPerfil.matricula = matriculaAlumno.text
-            vcPerfil.campus = campusA
+            vcPerfil.campus = user.campus
         } else {
             let vcNavC = segue.destination as! UINavigationController
             let vcWorkshop = vcNavC.topViewController as! TableViewControllerAWorkshop
-            vcWorkshop.matricula = matriculaAlumno.text
+            vcWorkshop.user = user
         }
     }
     

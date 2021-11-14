@@ -8,12 +8,15 @@
 import UIKit
 
 import FirebaseFirestore
+import FirebaseAuth
 
 class ViewController: UIViewController {
     
     // tfUsuario
     // tfPassword
     // btEntrar
+    var user: User!
+    
     var db: Firestore!
     var rol: String!
     @IBOutlet weak var tfUser: UITextField!
@@ -42,23 +45,23 @@ class ViewController: UIViewController {
     @IBAction func quitaTeclado(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let user = tfUser.text,
-           let pass = tfPassword.text{
-            getRol(matricula: tfUser.text!)
-            if rol == "Alumno" {
-                self.performSegue(withIdentifier: "vistaAlumno", sender: nil)
-                let vistaIni = segue.destination as! ViewControllerAlumnos
-                vistaIni.matriculaA = tfUser.text ?? ""
-        
-    }*/
-    
     
     @IBAction func btEntrar(_ sender: UIButton) {
         if let user = tfUser.text,
            let pass = tfPassword.text{
-            getRol(matricula: tfUser.text!)
+            // TODO: FORMAT EMAIL
+            Auth.auth().signIn(withEmail: user, password: pass) { (authRes, err) in
+                if let err = err {
+                    print("There was an error")
+                    print(err)
+                } else {
+                    print("Successful login")
+                    guard let userID = Auth.auth().currentUser?.uid else { return }
+                    print(userID)
+                    self.getRol(matricula: userID)
+                }
+
+            }
             if rol == "Alumno" {
                 self.performSegue(withIdentifier: "vistaAlumno", sender: self)
 
@@ -66,25 +69,30 @@ class ViewController: UIViewController {
             else if rol == "Coord"{
                 self.performSegue(withIdentifier: "vistaProfesor",sender: self)
             }
-            
+            else {
+                print("mm")
+            }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if rol == "Alumno"{
             let vistaIni = segue.destination as! ViewControllerAlumnos
-            vistaIni.matriculaA = tfUser.text ?? ""
+            //vistaIni.matriculaA = tfUser.text ?? ""
+            print("nom: \(user.nombre) mat: \(user.matricula) rol: \(user.rol)")
+            vistaIni.user = user
         }
         else{
             let vistaIni = segue.destination as! ViewControllerVistaInicial
-            vistaIni.nomina = tfUser.text ?? ""
+            //vistaIni.nomina = tfUser.text ?? ""
+            vistaIni.user = user
         }
     }
     
     private func getRol(matricula : String) {
             // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
             let key = matricula
-            let userDoc = db.collection("Usuarios").whereField("email", isEqualTo: key)
+            let userDoc = db.collection("Usuarios").whereField("UID", isEqualTo: key)
             userDoc.getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("ERROR! No user with such ID. \(err)")
@@ -93,8 +101,13 @@ class ViewController: UIViewController {
                 } else {
                     if let document = querySnapshot!.documents.first {
                         let userData = document.data()
-                        let rol = userData["rol"] as? String ?? ""
-                        self.rol = rol
+                        let nomBD = userData["nombre"] as? String ?? ""
+                        let campusBD = userData["campus"] as? String ?? ""
+                        let emailBD = userData["email"] as? String ?? ""
+                        let matBD = userData["matricula"] as? String ?? ""
+                        let rolBD = userData["rol"] as? String ?? ""
+                        self.user = User(nombre: nomBD, email: emailBD, matricula: matBD, campus: campusBD, rol: rolBD)
+                        self.rol = rolBD
                     }
                 }
             }
@@ -111,67 +124,6 @@ class ViewController: UIViewController {
              present(alerta, animated: true, completion: nil)
 
  */
-
-
-/*
- Auth.auth().signIn(withEmail: user, password: pass) { [self]
-     (res, error) in
-     if error != nil {
-         // agregar label de error
-         
-     }
-     else{
-         // guard let userID = res.id else { return }/
-         // var rol = getUserRole(key)
-         // if rol = Alumno
-         let vistaIni = segue.destination as! ViewControllerAlumnos
-         let userDoc = db.collection("Usuarios").whereField("email", isEqualTo: user)
-         userDoc.getDocuments {
-             (querySnapshot, err) in
-             if let err = err {
-                 print("ERROR! No user with such email. \(err)")
-             } else if querySnapshot!.documents.count != 1 {
-                 print("more than 1 doc")
-             } else {
-                 if let document = querySnapshot!.documents.first {
-                     let userData = document.data()
-                     let nombreDB = userData["nombre"] as? String ?? ""
-                     let matriculaDB = userData["matricula"] as? String ?? ""
-                     let campusDB = userData["campus"] as? String ?? ""
-                     // handle user nav from here? let rolDB = userData["rol"]...
-                     vistaIni.nombreAlumno.text = nombreDB
-                     vistaIni.matriculaAlumno.text = matriculaDB
-                     vistaIni.campusAlumno.text = campusDB
-                 }
-             }
-         }
- */
-
-
-/*
-  private func getUserData(key : String) {
-      let userDoc = db.collection("Usuarios").whereField("matricula", isEqualTo: key)
-      userDoc.getDocuments {
-          (querySnapshot, err) in
-          if let err = err {
-              print("ERROR! No user with such email. \(err)")
-          } else if querySnapshot!.documents.count != 1 {
-              print("more than 1 doc")
-          } else {
-              if let document = querySnapshot?.documents.first {
-                  let userData = document.data()
-                  let matriculaDB = userData["matricula"] as? String ?? ""
-                  let nombreDB = userData["nombre"] as? String ?? ""
-                  let campusDB = userData["campus"] as? String ?? ""
-                  // handle user nav from here? let rolDB = userData["rol"]...
-                  let rolDB = userData["rol"] as? String ?? ""
-                  self.userDB = User(nombre: nombreDB, matriculaID: matriculaDB, campus: campusDB, rol: rolDB)
-                  print("\(nombreDB), \(matriculaDB), \(campusDB), \(rolDB)")
-              }
-          }
-      }
-  }
-*/
 
 // podria ser un obj tambien user { name, matricula, campus }
 /*

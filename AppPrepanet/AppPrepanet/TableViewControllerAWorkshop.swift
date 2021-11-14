@@ -12,7 +12,9 @@ import FirebaseFirestore
 class TableViewControllerAWorkshop: UITableViewController {
     
     var db: Firestore!
-    var matricula: String!
+    // var matricula: String!
+    var user: User!
+    
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     var workshopArr : [Workshop] = []

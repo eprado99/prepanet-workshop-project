@@ -11,7 +11,7 @@ class ViewControllerVistaInicial: UIViewController {
     
     var db: Firestore!
     var nomina: String!
-    
+    var user: User!
     @IBOutlet weak var btTalleres: UIButton!
     @IBOutlet weak var btAlumnos: UIButton!
     @IBOutlet weak var btArchivo: UIButton!
@@ -36,9 +36,16 @@ class ViewControllerVistaInicial: UIViewController {
         
         db = Firestore.firestore()
         
-        getCoordinador(nomina: self.nomina)
+        // getCoordinador(nomina: self.nomina)
+        setUIData()
     }
     
+    private func setUIData(){
+        self.nombreCoord.text = user.nombre
+        self.matriculaCoord.text = user.matricula
+        self.campusCoord.text = "Campus " + user.campus
+        
+    }
     private func getCoordinador(nomina : String) {
         // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
         let key = nomina
