@@ -44,6 +44,8 @@ class TableViewControllerAWorkshop: UITableViewController {
                     let titBD = document.get("titulo") as! String
                     let desBD = document.get("descripcion") as! String
                     let reqBD = document.get("requerimientos") as! [String]
+                    let dates = document.get("wkDate") as! [Timestamp]
+                    
                     //print("\(document.documentID) => \(document.data())")
                     /*
                     if let data = document.data() as? [String: Any]{
@@ -56,7 +58,36 @@ class TableViewControllerAWorkshop: UITableViewController {
                             print("titulo: \(tit), descripcion: \(des)")
                         }
                         */
-                    print("\(idBD) \(titBD) \(desBD)")
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateStyle = .medium
+                    dateFormatter.timeStyle = .short
+                    
+                    let dateFormatter1 = DateFormatter()
+                    dateFormatter1.dateStyle = .long
+                    dateFormatter1.timeStyle = .medium
+                    
+                    let dateFormatter2 = DateFormatter()
+                    dateFormatter2.dateStyle = .medium
+                    dateFormatter2.timeStyle = .none
+                    
+                    let dateFormatter3 = DateFormatter()
+                    dateFormatter3.dateStyle = .none
+                    dateFormatter3.timeStyle = .short
+                    
+                    print(dateFormatter.string(from: dates[0].dateValue()))
+                    print(dateFormatter1.string(from: dates[0].dateValue()))
+                    print(dateFormatter2.string(from: dates[0].dateValue()), dateFormatter3.string(from: dates[0].dateValue()))
+                    print(dateFormatter2.string(from: dates[1].dateValue()), dateFormatter3.string(from: dates[1].dateValue()))
+                    /*
+                     Feb 14, 2022 at 9:00 AM (dateFormatter)
+                     February 14, 2022 at 9:00:00 AM (dateFormatter1)
+                     Feb 14, 2022 9:00 AM (dateFormatter2, dateFormatter3)
+                     Feb 18, 2022 1:00 PM (dateFormatter2, dateFormatter3)
+                    */
+
+                    // print data
+                    // print("\(idBD) \(titBD) \(desBD)")
                     self.workshopArr.append(Workshop(wkID: idBD, title: titBD, descr: desBD, req: reqBD))
                     
                 }

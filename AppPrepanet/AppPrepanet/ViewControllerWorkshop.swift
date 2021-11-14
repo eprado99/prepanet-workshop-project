@@ -63,7 +63,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         // tallerID, campusID, matricula, status, Date
         let enrollData: [String: Any] = [
             
-            "tallerID" : 1,
+            "tallerID" : workshop.wkID,
             "campusID" : user.campus,
             "matricula" : user.matricula
             
