@@ -11,12 +11,8 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class ViewController: UIViewController {
-    
-    // tfUsuario
-    // tfPassword
-    // btEntrar
+
     var user: User!
-    
     var db: Firestore!
     var rol: String!
     @IBOutlet weak var tfUser: UITextField!
@@ -38,10 +34,7 @@ class ViewController: UIViewController {
         
         view.addGestureRecognizer(tap)
     }
-
-    private func getUserRole(key: String){
-        
-    }
+    
     @IBAction func quitaTeclado(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -54,6 +47,11 @@ class ViewController: UIViewController {
                 if let err = err {
                     print("There was an error")
                     print(err)
+                    let alerta = UIAlertController(title: "Error", message: "Email o password incorrecto", preferredStyle: .alert)
+                    let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alerta.addAction(accion)
+                    self.present(alerta, animated: true, completion: nil)
+                    
                 } else {
                     print("Successful login")
                     guard let userID = Auth.auth().currentUser?.uid else { return }

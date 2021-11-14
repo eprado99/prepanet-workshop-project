@@ -15,7 +15,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var lbAbout: UILabel!
     
     var workshop : Workshop!
-    
+    var user: User!
     override func viewDidLoad() {
         super.viewDidLoad()
         lbTitle.text = workshop.title

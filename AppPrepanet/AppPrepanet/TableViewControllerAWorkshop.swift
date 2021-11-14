@@ -135,6 +135,7 @@ class TableViewControllerAWorkshop: UITableViewController {
         let vistaWorkshop = segue.destination as! ViewControllerWorkshop
         let index = tableView.indexPathForSelectedRow!
         vistaWorkshop.workshop = workshopArr[index.row]
+        vistaWorkshop.user = user
             
 
         
