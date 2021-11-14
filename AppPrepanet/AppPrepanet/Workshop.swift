@@ -8,12 +8,14 @@
 import UIKit
 
 class Workshop: NSObject {
-
+    
+    var wkID: String
     var title: String
     var descr: String
     var req: [String]
     
-    init(title: String, descr: String, req: [String]) {
+    init(wkID: String, title: String, descr: String, req: [String]) {
+        self.wkID = wkID
         self.title = title
         self.descr = descr
         self.req = req

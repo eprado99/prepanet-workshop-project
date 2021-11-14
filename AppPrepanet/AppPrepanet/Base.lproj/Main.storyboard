@@ -249,6 +249,9 @@
                                 <rect key="frame" x="260" y="607" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Inscribirse"/>
+                                <connections>
+                                    <action selector="enrollBt:" destination="Otc-6X-kPi" eventType="touchUpInside" id="b75-GA-jTO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estado:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20k-rN-fDI">
                                 <rect key="frame" x="16" y="577" width="62" height="21"/>

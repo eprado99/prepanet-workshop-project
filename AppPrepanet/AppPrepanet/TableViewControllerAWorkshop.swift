@@ -40,6 +40,7 @@ class TableViewControllerAWorkshop: UITableViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    let idBD = document.documentID
                     let titBD = document.get("titulo") as! String
                     let desBD = document.get("descripcion") as! String
                     let reqBD = document.get("requerimientos") as! [String]
@@ -55,8 +56,8 @@ class TableViewControllerAWorkshop: UITableViewController {
                             print("titulo: \(tit), descripcion: \(des)")
                         }
                         */
-                    print(reqBD)
-                    self.workshopArr.append(Workshop(title: titBD, descr: desBD, req: reqBD))
+                    print("\(idBD) \(titBD) \(desBD)")
+                    self.workshopArr.append(Workshop(wkID: idBD, title: titBD, descr: desBD, req: reqBD))
                     
                 }
                     

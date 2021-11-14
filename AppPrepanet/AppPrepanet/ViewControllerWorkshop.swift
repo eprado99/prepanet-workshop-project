@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -35,7 +36,10 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.text = workshop.req[indexPath.row]
         
         return cell
-    }    /*
+    }
+    
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -45,4 +49,33 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     }
     */
 
+    @IBAction func enrollBt(_ sender: UIButton) {
+        
+    }
+    
+    
+    private func enrollStudent(){
+        var db: Firestore!
+        
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        // tallerID, campusID, matricula, status, Date
+        let enrollData: [String: Any] = [
+            
+            "tallerID" : 1,
+            "campusID" : user.campus,
+            "matricula" : user.matricula
+            
+        ]
+        var ref: DocumentReference? = nil
+        ref = db.collection("InscripcionesDummy").addDocument(data: enrollData) { (err) in
+            if let err = err {
+                print("There was an error adding your doc \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
+    
 }
