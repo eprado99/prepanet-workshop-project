@@ -34,6 +34,17 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             btInscripcion.isHidden = true
         }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateStyle = .long
+        dateFormatter1.timeStyle = .medium
+
+        startDate.text = dateFormatter.string(from: workshop.startDate)
+        endDate.text = dateFormatter.string(from: workshop.endDate)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -62,6 +73,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func enrollBt(_ sender: UIButton) {
         enrollStudent()
+        lbDescEstado.text = "En proceso"
     }
     
     
@@ -89,6 +101,17 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
+        /*
+        let enrollUserData: [String: Any] = [
+            "hola" : "hola"
+        ]
+        
+        var refAlumno  = db.collection("Usuarios").document(user.matricula)
+        refAlumno.updateData([
+            "wkInscritos": FieldValue.arrayUnion(["status"])
+        ])
+         */
+    
     }
     
 }

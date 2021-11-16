@@ -61,6 +61,7 @@ class ViewController: UIViewController {
                     print("Successful login")
                     guard let userID = Auth.auth().currentUser?.uid else { return }
                     print(userID)
+                    
                     self.getRol(matricula: userID){
                         if self.rol == "Alumno" {
                             self.performSegue(withIdentifier: "vistaAlumno", sender: self)
