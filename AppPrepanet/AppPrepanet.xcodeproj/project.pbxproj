@@ -16,6 +16,10 @@
 		AF777F51272F436D00E036F4 /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F50272F436D00E036F4 /* Workshop.swift */; };
 		AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */; };
 		AF83856C273445270014860D /* Inscripcion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83856B273445270014860D /* Inscripcion.swift */; };
+		B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A877502743154500762F8D /* TableViewControllerCampus.swift */; };
+		B5A8775827431CAA00762F8D /* TableViewCampusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */; };
+		B5A8775B274326D400762F8D /* TableViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */; };
+		B5A8775E2743274300762F8D /* TableViewAlumnoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */; };
 		E0084722273E3D270071AB04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0084721273E3D260071AB04 /* GoogleService-Info.plist */; };
 		E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */; };
 		FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */; };
@@ -38,6 +42,10 @@
 		AF777F50272F436D00E036F4 /* Workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
 		AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWorkshop.swift; sourceTree = "<group>"; };
 		AF83856B273445270014860D /* Inscripcion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscripcion.swift; sourceTree = "<group>"; };
+		B5A877502743154500762F8D /* TableViewControllerCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCampus.swift; sourceTree = "<group>"; };
+		B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCampusCell.swift; sourceTree = "<group>"; };
+		B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAlumnos.swift; sourceTree = "<group>"; };
+		B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAlumnoCell.swift; sourceTree = "<group>"; };
 		DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppPrepanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.debug.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.debug.xcconfig"; sourceTree = "<group>"; };
 		E0084721273E3D260071AB04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -108,6 +116,10 @@
 				FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */,
 				FB7EC6222722FD020028F1C7 /* ViewController.swift */,
 				FB7EC6242722FD020028F1C7 /* Main.storyboard */,
+				B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */,
+				B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */,
+				B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */,
+				B5A877502743154500762F8D /* TableViewControllerCampus.swift */,
 				E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */,
 				AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */,
 				AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */,
@@ -242,9 +254,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5A8775827431CAA00762F8D /* TableViewCampusCell.swift in Sources */,
 				AF83856C273445270014860D /* Inscripcion.swift in Sources */,
+				B5A8775B274326D400762F8D /* TableViewControllerAlumnos.swift in Sources */,
 				AF761DF3272AE36100958AAB /* TableViewControllerAWorkshop.swift in Sources */,
 				FB7EC656272322D00028F1C7 /* ViewControllerVistaInicial.swift in Sources */,
+				B5A8775E2743274300762F8D /* TableViewAlumnoCell.swift in Sources */,
 				AF777F51272F436D00E036F4 /* Workshop.swift in Sources */,
 				AF761DF9272AE8A500958AAB /* ViewControllerPerfil.swift in Sources */,
 				FB7EC6232722FD020028F1C7 /* ViewController.swift in Sources */,
@@ -253,6 +268,7 @@
 				AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */,
 				AF69369E2731BC00003E307E /* User.swift in Sources */,
 				AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */,
+				B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */,
 				E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */,
 				AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */,
 				FB7EC6212722FD020028F1C7 /* SceneDelegate.swift in Sources */,
