@@ -13,20 +13,21 @@ class ViewControllerArchivo: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "prueba"
 
         // Do any additional setup after loading the view.
     }
     
     
-    @IBAction func bttShare(sender: [AnyObject]) {
+    
+    @IBAction func buttShare(_ sender: UIButton) {
         let datosUsuario = arregloDummy.joined(separator: ",")
         let share = [datosUsuario] as [Any]
         let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
         
-        //para iPad
-        //activityViewController.popoverPresentationController?.sourceView = self.view
         //para iPhone y iPod
         self.present(activityViewController, animated: true, completion: nil)
+        
     }
     
     

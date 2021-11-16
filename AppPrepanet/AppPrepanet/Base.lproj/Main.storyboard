@@ -371,7 +371,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kks-St-bsm" kind="presentation" identifier="archivo" id="IMT-NB-Vbe"/>
+                                    <segue destination="cO0-V4-4PV" kind="presentation" id="jbI-3p-fc4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A0XXXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D2-lI-0Bb">
@@ -424,37 +424,37 @@
             <point key="canvasLocation" x="1005.6" y="952.17391304347836"/>
         </scene>
         <!--View Controller Archivo-->
-        <scene sceneID="eDG-pj-040">
+        <scene sceneID="aSt-FD-tia">
             <objects>
-                <viewController id="kks-St-bsm" customClass="ViewControllerArchivo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UOs-ya-1cK" customClass="UIViewControllerVistaArchivo">
+                <viewController id="cO0-V4-4PV" customClass="ViewControllerArchivo" customModule="AppPrepanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ck0-YF-BVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mandar archivo por mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbK-re-1LA">
-                                <rect key="frame" x="96" y="79" width="183" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-aJ-Iq3">
+                                <rect key="frame" x="178" y="137" width="19" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button" image="square.and.arrow.up" catalog="system"/>
+                                <connections>
+                                    <action selector="buttShare:" destination="cO0-V4-4PV" eventType="touchUpInside" id="3Cp-Ez-b6E"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mandar base de datos por correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-Qz-WCH">
+                                <rect key="frame" x="60" y="66" width="254" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="866-ad-9AY">
-                                <rect key="frame" x="166" y="129" width="43" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" image="square.and.arrow.up" catalog="system"/>
-                                <connections>
-                                    <action selector="bttShare:" destination="kks-St-bsm" eventType="touchUpInside" id="3uS-EN-aFf"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="c0c-n5-5WX"/>
+                        <viewLayoutGuide key="safeArea" id="UZn-OY-Ozu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Uf-rV-6dK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rft-ca-XKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="1759.9700149925038"/>
+            <point key="canvasLocation" x="1136.8" y="1793.2533733133434"/>
         </scene>
         <!--Table View Controller Campus-->
         <scene sceneID="GaU-Ux-SP8">
