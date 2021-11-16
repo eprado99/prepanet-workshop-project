@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    
     var user: User!
     var db: Firestore!
     var rol: String!
@@ -28,11 +29,12 @@ class ViewController: UIViewController {
         db = Firestore.firestore()
         
         btSignIn.layer.cornerRadius = 15
-        
+        tfPassword.isSecureTextEntry = true
         //poner el tap por programa
         let tap = UITapGestureRecognizer(target: self, action: #selector(quitaTeclado))
         
         view.addGestureRecognizer(tap)
+        
     }
     
     @IBAction func quitaTeclado(_ sender: UITapGestureRecognizer) {
@@ -44,7 +46,9 @@ class ViewController: UIViewController {
         if let user = tfUser.text,
            let pass = tfPassword.text{
             // TODO: FORMAT EMAIL
-            Auth.auth().signIn(withEmail: user, password: pass) { (authRes, err) in
+            let cleanUser = user.trimmingCharacters(in: .whitespacesAndNewlines)
+            let cleanPass = pass.trimmingCharacters(in: .whitespacesAndNewlines)
+            Auth.auth().signIn(withEmail: cleanUser, password: cleanPass) { (authRes, err) in
                 if let err = err {
                     print("There was an error")
                     print(err)
@@ -57,19 +61,20 @@ class ViewController: UIViewController {
                     print("Successful login")
                     guard let userID = Auth.auth().currentUser?.uid else { return }
                     print(userID)
-                    self.getRol(matricula: userID)
+                    self.getRol(matricula: userID){
+                        if self.rol == "Alumno" {
+                            self.performSegue(withIdentifier: "vistaAlumno", sender: self)
+
+                        }
+                        else if self.rol == "Coord"{
+                            self.performSegue(withIdentifier: "vistaProfesor",sender: self)
+                        }
+                        else {
+                            print("mm")
+                        }
+                    }
                 }
 
-            }
-            if rol == "Alumno" {
-                self.performSegue(withIdentifier: "vistaAlumno", sender: self)
-
-            }
-            else if rol == "Coord"{
-                self.performSegue(withIdentifier: "vistaProfesor",sender: self)
-            }
-            else {
-                print("mm")
             }
         }
     }
@@ -89,7 +94,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Database
-    private func getRol(matricula : String) {
+    private func getRol(matricula : String, completion: @escaping () -> Void) {
             // let key = UserDefaults.standard.value(forKey: "uid") as? String ?? "Null"
             let key = matricula
             let userDoc = db.collection("Usuarios").whereField("UID", isEqualTo: key)
@@ -108,22 +113,15 @@ class ViewController: UIViewController {
                         let rolBD = userData["rol"] as? String ?? ""
                         self.user = User(nombre: nomBD, email: emailBD, matricula: matBD, campus: campusBD, rol: rolBD)
                         self.rol = rolBD
+
+                        completion()
                     }
                 }
             }
-        
     }
     
 }
 
-/*
- 
- let alerta = UIAlertController(title: "Error", message: "usuario o password incorrectos", preferredStyle: .alert)
-             let accion = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-             alerta.addAction(accion)
-             present(alerta, animated: true, completion: nil)
-
- */
 
 // podria ser un obj tambien user { name, matricula, campus }
 /*

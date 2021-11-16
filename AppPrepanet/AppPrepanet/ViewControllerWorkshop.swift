@@ -18,6 +18,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var lbDescEstado: UILabel!
     @IBOutlet weak var btInscripcion: UIButton!
     
+    @IBOutlet weak var startDate: UILabel!
+    @IBOutlet weak var endDate: UILabel!
+    
     var workshop : Workshop!
     var user: User!
     override func viewDidLoad() {

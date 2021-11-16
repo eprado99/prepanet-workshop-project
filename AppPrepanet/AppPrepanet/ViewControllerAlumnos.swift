@@ -22,6 +22,7 @@ class ViewControllerAlumnos: UIViewController {
     
     
     @IBOutlet weak var btWorkshop: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let settings = FirestoreSettings()
@@ -37,6 +38,10 @@ class ViewControllerAlumnos: UIViewController {
 
         setUIData()
         
+    }
+    
+    @IBAction func logOut(sender: UIButton){
+        print("logout")
     }
     
     private func setUIData(){

@@ -140,6 +140,14 @@
                                 <rect key="frame" x="259" y="42.5" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdk-m0-dGX">
+                                <rect key="frame" x="26" y="617" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logOutWithSender:" destination="GNd-7g-RO7" eventType="touchUpInside" id="Dz7-j5-22o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3lx-vR-sI0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -309,6 +317,20 @@
                                     <outlet property="delegate" destination="Otc-6X-kPi" id="2YY-Vu-Gph"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-do-pfu">
+                                <rect key="frame" x="39" y="159" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRu-BF-Yzq">
+                                <rect key="frame" x="39" y="188" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dxT-JV-EQa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -316,10 +338,12 @@
                     <navigationItem key="navigationItem" id="YjD-df-Ads"/>
                     <connections>
                         <outlet property="btInscripcion" destination="yXI-X0-DwB" id="Ffp-yJ-Tx1"/>
+                        <outlet property="endDate" destination="PRu-BF-Yzq" id="ZRP-wk-v31"/>
                         <outlet property="lbAbout" destination="FQF-av-16G" id="bSq-AS-Vja"/>
                         <outlet property="lbDescEstado" destination="egM-wD-OiB" id="8lQ-Hz-EN5"/>
                         <outlet property="lbEstado" destination="20k-rN-fDI" id="gCh-HB-sqn"/>
                         <outlet property="lbTitle" destination="eO0-we-RKz" id="mFt-NF-iMH"/>
+                        <outlet property="startDate" destination="wXf-do-pfu" id="eCH-Gw-uhU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx3-Wc-nuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -772,7 +796,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="23J-qA-SLT"/>
+        <segue reference="0BP-Ic-0oZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
