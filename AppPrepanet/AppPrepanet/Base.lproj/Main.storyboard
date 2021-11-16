@@ -315,7 +315,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="YjD-df-Ads"/>
                     <connections>
+                        <outlet property="btInscripcion" destination="yXI-X0-DwB" id="Ffp-yJ-Tx1"/>
                         <outlet property="lbAbout" destination="FQF-av-16G" id="bSq-AS-Vja"/>
+                        <outlet property="lbDescEstado" destination="egM-wD-OiB" id="8lQ-Hz-EN5"/>
+                        <outlet property="lbEstado" destination="20k-rN-fDI" id="gCh-HB-sqn"/>
                         <outlet property="lbTitle" destination="eO0-we-RKz" id="mFt-NF-iMH"/>
                     </connections>
                 </viewController>
@@ -339,6 +342,9 @@
                                 <state key="normal" title="Talleres">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MrV-IZ-jRK" kind="presentation" identifier="talleres" modalPresentationStyle="fullScreen" id="23J-qA-SLT"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T7M-Bj-XH6">
                                 <rect key="frame" x="259" y="21.5" width="100" height="100"/>
@@ -349,11 +355,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.085370726879999997" green="0.36155849699999998" blue="0.74514013530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Campus">
+                                <state key="normal" title="Alumnos">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7TX-32-4IS" kind="presentation" identifier="talleres" animates="NO" modalPresentationStyle="fullScreen" id="op3-KB-F9T"/>
+                                    <segue destination="7TX-32-4IS" kind="presentation" identifier="alumnos" animates="NO" modalPresentationStyle="fullScreen" id="op3-KB-F9T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unn-WT-fZF">
@@ -765,6 +771,9 @@
             <point key="canvasLocation" x="2208.8000000000002" y="156.97151424287858"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="23J-qA-SLT"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

@@ -71,14 +71,21 @@ class ViewControllerVistaInicial: UIViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         
+         // Checa si el destino es la vista ViewControllerPerfil y le comparte el nombre del alumno
+         if segue.identifier == "talleres" {
+             let vcNavC = segue.destination as! UINavigationController
+             let vcTalleres = vcNavC.topViewController as! TableViewControllerAWorkshop
+            vcTalleres.user = user
+         } else if segue.identifier == "alumnos"{
+             let vcNavC = segue.destination as! UINavigationController
+             let vcWorkshop = vcNavC.topViewController as! TableViewControllerCampus
+            
+         }
+     }
 
 }

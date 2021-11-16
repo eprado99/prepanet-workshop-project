@@ -14,6 +14,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbAbout: UILabel!
+    @IBOutlet weak var lbEstado: UILabel!
+    @IBOutlet weak var lbDescEstado: UILabel!
+    @IBOutlet weak var btInscripcion: UIButton!
     
     var workshop : Workshop!
     var user: User!
@@ -22,6 +25,11 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
         lbTitle.textAlignment = .center
+        if user.rol == "Coord"{
+            lbEstado.isHidden = true
+            lbDescEstado.isHidden = true
+            btInscripcion.isHidden = true
+        }
         
         // Do any additional setup after loading the view.
     }
