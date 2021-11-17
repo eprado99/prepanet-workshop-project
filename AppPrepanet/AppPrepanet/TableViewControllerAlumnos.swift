@@ -13,6 +13,9 @@ class TableViewControllerAlumnos: UITableViewController {
 
     var db: Firestore!
     var campus: String!
+    var nombreAlumno: String!
+    var campusAlumno: String!
+    var matriculaAlumno: String!
     
     var AlumnosArr : [String] = []
     
@@ -59,7 +62,9 @@ class TableViewControllerAlumnos: UITableViewController {
             } else {
                 for document in querySnapshot!.documents{
                     let matricula = document.get("matricula") as! String
-                    
+                    self.nombreAlumno = document.get("nombre") as? String
+                    self.campusAlumno = document.get("campus") as? String
+                    self.matriculaAlumno = document.get("matricula") as? String
                     self.AlumnosArr.append(matricula)
                 }
             }
@@ -68,18 +73,15 @@ class TableViewControllerAlumnos: UITableViewController {
     }
 
     
-
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vistaPerfilAlumno = segue.destination as! ViewControllerPerfil
+        vistaPerfilAlumno.nombre = self.nombreAlumno
+        vistaPerfilAlumno.campus = self.campus
+        vistaPerfilAlumno.matricula = self.matriculaAlumno
     }
-    */
     
     @IBAction func regresarTablaCampus(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

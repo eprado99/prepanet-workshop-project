@@ -25,8 +25,7 @@ class ViewControllerVistaInicial: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        btTalleres.layer.cornerRadius = 40
-        btPerfil.layer.cornerRadius = 40
+        btTalleres.layer.cornerRadius = 40	
         btAlumnos.layer.cornerRadius = 40
         btArchivo.layer.cornerRadius = 40
         
