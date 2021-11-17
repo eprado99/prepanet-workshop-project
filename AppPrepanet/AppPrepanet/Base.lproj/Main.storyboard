@@ -170,7 +170,7 @@
         <scene sceneID="03V-FF-F7H">
             <objects>
                 <tableViewController id="hop-Xg-m3e" customClass="TableViewControllerAWorkshop" customModule="AppPrepanet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q8E-aC-QA4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Q8E-aC-QA4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -182,31 +182,41 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-3A-1ma">
-                                            <rect key="frame" x="26" y="21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-nH-Gti">
+                                            <rect key="frame" x="16" y="11" width="343" height="95"/>
+                                            <color key="backgroundColor" red="0.20201859823040691" green="0.36840366649819745" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-3A-1ma">
+                                            <rect key="frame" x="26" y="21" width="323" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHs-2i-ofI">
-                                            <rect key="frame" x="26" y="48" width="343" height="58"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHs-2i-ofI">
+                                            <rect key="frame" x="31" y="48" width="313" height="58"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FHs-2i-ofI" secondAttribute="trailing" constant="15" id="05Q-gT-6dR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vsp-nH-Gti" secondAttribute="bottom" id="45l-Nn-1du"/>
                                         <constraint firstItem="1J3-3A-1ma" firstAttribute="top" secondItem="1Rw-Uc-yqy" secondAttribute="topMargin" constant="10" id="57l-tw-hf1"/>
                                         <constraint firstItem="1J3-3A-1ma" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" constant="10" id="ESH-MK-UxL"/>
-                                        <constraint firstItem="FHs-2i-ofI" firstAttribute="trailing" secondItem="1Rw-Uc-yqy" secondAttribute="trailingMargin" constant="10" id="FWY-kq-x4s"/>
                                         <constraint firstItem="FHs-2i-ofI" firstAttribute="top" secondItem="1J3-3A-1ma" secondAttribute="bottom" constant="10" id="Rx6-Gq-MNH"/>
-                                        <constraint firstItem="FHs-2i-ofI" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" constant="10" id="exF-H7-NMW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1J3-3A-1ma" secondAttribute="trailing" constant="10" id="WN6-2n-zYp"/>
+                                        <constraint firstItem="vsp-nH-Gti" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" id="YuO-Aw-pYK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vsp-nH-Gti" secondAttribute="trailing" id="le3-Gs-bCG"/>
+                                        <constraint firstItem="FHs-2i-ofI" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" constant="15" id="pSK-af-f7i"/>
+                                        <constraint firstItem="vsp-nH-Gti" firstAttribute="top" secondItem="1Rw-Uc-yqy" secondAttribute="topMargin" id="tVG-FD-yhr"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="FHs-2i-ofI" secondAttribute="bottom" constant="10" id="tqF-fm-HPV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lbDescription" destination="FHs-2i-ofI" id="aGS-UW-5ad"/>
                                     <outlet property="lbTitle" destination="1J3-3A-1ma" id="trR-oj-svg"/>
+                                    <outlet property="viewFondo" destination="vsp-nH-Gti" id="Mdc-gq-c2M"/>
                                     <segue destination="Otc-6X-kPi" kind="show" id="b5u-xt-hyS"/>
                                 </connections>
                             </tableViewCell>

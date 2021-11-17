@@ -48,6 +48,7 @@ class TableViewControllerAWorkshop: UITableViewController {
         let workshop = workshopArr[indexPath.row]
         cell.lbTitle.text = workshop.title
         cell.lbDescription.text = workshop.descr
+        cell.viewFondo.layer.cornerRadius = cell.viewFondo.frame.height / 2
         return cell
     }
 
