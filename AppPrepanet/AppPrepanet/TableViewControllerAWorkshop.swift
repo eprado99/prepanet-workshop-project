@@ -111,7 +111,6 @@ class TableViewControllerAWorkshop: UITableViewController {
                      Feb 18, 2022 1:00 PM (dateFormatter2, dateFormatter3)
                     */
 
-                    // print data
                     // print("\(idBD) \(titBD) \(desBD)")
                     self.workshopArr.append(Workshop(wkID: idBD, title: titBD, descr: desBD, req: reqBD, startDate: startDateBD, endDate: endDateBD))
                     
@@ -123,53 +122,3 @@ class TableViewControllerAWorkshop: UITableViewController {
     }
     
 }
-
-/*
- private var restaurants: [Restaurant] = []
-   private var documents: [DocumentSnapshot] = []
-
-   fileprivate var query: Query? {
-     didSet {
-       if let listener = listener {
-         listener.remove()
-         observeQuery()
-       }
-     }
-   }
-
-   private var listener: ListenerRegistration?
-
-   fileprivate func observeQuery() {
-     guard let query = query else { return }
-     stopObserving()
-
-     // Display data from Firestore, part one
-     listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
-       guard let snapshot = snapshot else {
-         print("Error fetching snapshot results: \(error!)")
-         return
-       }
-       let models = snapshot.documents.map { (document) -> Restaurant in
-         if let model = Restaurant(dictionary: document.data()) {
-           return model
-         } else {
-           // Don't use fatalError here in a real app.
-           fatalError("Unable to initialize type \(Restaurant.self) with dictionary \(document.data())")
-         }
-       }
-       self.restaurants = models
-       self.documents = snapshot.documents
-
-       if self.documents.count > 0 {
-         self.tableView.backgroundView = nil
-       } else {
-         self.tableView.backgroundView = self.backgroundView
-       }
-
-       self.tableView.reloadData()
-     }
-   }
-
-   fileprivate func stopObserving() {
-     listener?.remove()
-   } */

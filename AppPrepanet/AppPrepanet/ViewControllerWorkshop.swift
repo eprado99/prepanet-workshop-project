@@ -71,12 +71,20 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     }
     */
 
-    @IBAction func enrollBt(_ sender: UIButton) {
+    @IBAction func enrollBt(_ sender: UIButton){
+        // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
         enrollStudent()
         lbDescEstado.text = "En proceso"
     }
     
-    
+    private func isEnrolled(){
+        var db: Firestore!
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        //var userStatus = db.collection
+    }
     private func enrollStudent(){
         var db: Firestore!
         
@@ -101,16 +109,19 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
-        /*
-        let enrollUserData: [String: Any] = [
-            "hola" : "hola"
+        
+        let enrollUserData: [String:Any] = [
+            
+            "status" : "En Proceso",
+            "tallerID" : workshop.wkID
+            
         ]
         
-        var refAlumno  = db.collection("Usuarios").document(user.matricula)
+        var refAlumno  = db.collection("UsuariosDummy").document(user.matricula)
         refAlumno.updateData([
-            "wkInscritos": FieldValue.arrayUnion(["status"])
+            "wkInscritos": FieldValue.arrayUnion([enrollUserData])
         ])
-         */
+         
     
     }
     

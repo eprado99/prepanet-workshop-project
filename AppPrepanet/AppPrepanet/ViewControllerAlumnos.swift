@@ -41,9 +41,10 @@ class ViewControllerAlumnos: UIViewController {
     }
     
     @IBAction func logOut(sender: UIButton){
+        dismiss(animated: true, completion: nil)
         print("logout")
     }
-    
+
     private func setUIData(){
         self.nombreAlumno.text = user.nombre
         self.matriculaAlumno.text = user.matricula
