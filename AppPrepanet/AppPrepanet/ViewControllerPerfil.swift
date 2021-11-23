@@ -14,7 +14,7 @@ class ViewControllerPerfil: UIViewController {
     var nombre: String!
     var matricula: String!
     var campus: String!
-    var inscripciones: [Inscripcion]!
+    var inscripciones: [Inscripcion] = []
     @IBOutlet weak var nomCoord: UILabel!
     @IBOutlet weak var correoCoord: UILabel!
     @IBOutlet weak var nombrePerf: UILabel!

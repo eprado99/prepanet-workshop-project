@@ -72,11 +72,11 @@ class TableViewControllerAlumnos: UITableViewController {
                 print("ERROR! \(err)")
             } else {
                 for document in querySnapshot!.documents{
-                    //document.documentID
-                    let matricula = document.get("matricula") as! String
+                    let matricula = document.documentID
+                    //let matricula = document.get("matricula") as! String
                     self.nombreAlumno = document.get("nombre") as? String
                     self.campusAlumno = document.get("campus") as? String
-                    self.matriculaAlumno = document.get("matricula") as? String
+                    self.matriculaAlumno = matricula
                     self.AlumnosArr.append(matricula)
                 }
             }
