@@ -40,12 +40,20 @@ class TableViewControllerCampus: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 == 0{
         let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
         let campus = campusArr[indexPath.row]
         
         cell.lbNombreCampus.text = campus
         return cell
-
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celda2", for: indexPath) as! TableViewCampusCell
+            let campus = campusArr[indexPath.row]
+            
+            cell.lbNombreCampus.text = campus
+            return cell
+        }
     }
     
     // MARK: - Database

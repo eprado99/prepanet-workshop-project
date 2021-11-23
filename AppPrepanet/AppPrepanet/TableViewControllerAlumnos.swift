@@ -46,11 +46,20 @@ class TableViewControllerAlumnos: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
-        let alumno = AlumnosArr[indexPath.row]
-        cell.lbMatriculaAlumno.text = alumno
+        if indexPath.row%2 == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
+            let alumno = AlumnosArr[indexPath.row]
+            cell.lbMatriculaAlumno.text = alumno
 
-        return cell
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno2", for: indexPath) as! TableViewAlumnoCell
+            let alumno = AlumnosArr[indexPath.row]
+            cell.lbMatriculaAlumno.text = alumno
+
+            return cell
+        }
     }
     
     // MARK: - Database
