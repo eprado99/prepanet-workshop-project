@@ -23,14 +23,16 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     
     var workshop : Workshop!
     var user: User!
-    var inscripcion: Inscripcion!
+    var inscripciones: [Inscripcion] = []
     var userWks : [String:Any]!
     override func viewDidLoad() {
         super.viewDidLoad()
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
         // Check workshops enrolled by user
-        isEnrolled()
+        getEnrollmentStatus(){
+            self.isEnrolled()
+        }
         lbTitle.textAlignment = .center
         if user.rol == "Coord"{
             lbEstado.isHidden = true
@@ -78,12 +80,10 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     @IBAction func enrollBt(_ sender: UIButton){
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
         enrollStudent()
-        print("\(self.inscripcion.wkID)")
-        lbDescEstado.text = "En proceso"
     }
     
     
-    private func isEnrolled(){
+    private func getEnrollmentStatus(completion: @escaping () -> Void){
         var db: Firestore!
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
@@ -102,12 +102,25 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
                     
-                    self.inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
+                    let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    self.inscripciones.append(inscripcion)
+                    
+                    completion()
                 }
             }
         }
     }
     
+    private func isEnrolled(){
+        for inscripcion in inscripciones {
+            if(inscripcion.wkID == workshop.wkID){
+                btInscripcion.isEnabled = false
+                lbDescEstado.text = inscripcion.status
+            }
+        }
+    }
+
     private func enrollStudent(){
         var db: Firestore!
         
@@ -126,7 +139,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         ]
         
         var ref: DocumentReference? = nil
-        ref = db.collection("InscripcionesDummy").addDocument(data: enrollData) { (err) in
+        ref = db.collection("Inscripciones").addDocument(data: enrollData) { (err) in
             if let err = err {
                 print("There was an error adding your doc \(err)")
             } else {
@@ -134,6 +147,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
+        isEnrolled()
         /*
         let enrollUserData: [String:Any] = [
             
@@ -147,6 +161,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             "wkInscritos": FieldValue.arrayUnion([enrollUserData])
         ])
         */
+        btInscripcion.isEnabled = false
     }
     
 }
