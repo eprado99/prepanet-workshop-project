@@ -29,6 +29,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
+        btInscripcion.layer.cornerRadius = 4
         // Check workshops enrolled by user
         getEnrollmentStatus(){
             self.isEnrolled()
@@ -106,8 +107,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
-                    completion()
+                    
                 }
+                completion()
             }
         }
     }
@@ -115,8 +117,15 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     private func isEnrolled(){
         for inscripcion in inscripciones {
             if(inscripcion.wkID == workshop.wkID){
-                btInscripcion.isEnabled = false
-                lbDescEstado.text = inscripcion.status
+                if(inscripcion.status == "En Proceso"){
+                    self.btInscripcion.isEnabled = false
+                }
+                if(inscripcion.status == "Inscrito"){
+                    self.btInscripcion.isEnabled = false
+                    self.btInscripcion.backgroundColor = UIColor.systemGreen
+                    self.btInscripcion.setTitle(inscripcion.status, for: .normal)
+                }
+                self.lbDescEstado.text = inscripcion.status
             }
         }
     }

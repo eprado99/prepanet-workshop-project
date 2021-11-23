@@ -19,7 +19,7 @@ class Inscripcion: NSObject {
         self.date = date
         self.campusID = campusID
         self.matriculaAlum = matriculaAlum
-        self.status = "En Proceso"
+        self.status = status
         self.wkID = wkID
     }
     
