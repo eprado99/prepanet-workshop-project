@@ -14,7 +14,7 @@ class ViewControllerPerfil: UIViewController {
     var nombre: String!
     var matricula: String!
     var campus: String!
-    var inscripcion: Inscripcion!
+    var inscripciones: [Inscripcion]!
     @IBOutlet weak var nomCoord: UILabel!
     @IBOutlet weak var correoCoord: UILabel!
     @IBOutlet weak var nombrePerf: UILabel!
@@ -91,7 +91,7 @@ class ViewControllerPerfil: UIViewController {
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
                     
-                    self.inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    self.inscripciones.append(Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift))
                 }
             }
         }
