@@ -50,11 +50,13 @@ class TableViewControllerAlumnos: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
             let alumno = AlumnosArr[indexPath.row]
             cell.lbMatriculaAlumno.text = alumno
-
+            let color = UIColor(red: 206/255, green: 235/255, blue: 255/255, alpha: 1)
+            cell.View.backgroundColor = color
+            
             return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno2", for: indexPath) as! TableViewAlumnoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
             let alumno = AlumnosArr[indexPath.row]
             cell.lbMatriculaAlumno.text = alumno
 

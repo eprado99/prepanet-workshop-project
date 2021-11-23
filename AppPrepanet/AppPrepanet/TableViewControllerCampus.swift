@@ -41,14 +41,16 @@ class TableViewControllerCampus: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 2 == 0{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
-        let campus = campusArr[indexPath.row]
-        
-        cell.lbNombreCampus.text = campus
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
+            let campus = campusArr[indexPath.row]
+            
+            cell.lbNombreCampus.text = campus
+            let color = UIColor(red: 206/255, green: 235/255, blue: 255/255, alpha: 1)
+            cell.View.backgroundColor = color
+            return cell
         }
         else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "celda2", for: indexPath) as! TableViewCampusCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
             let campus = campusArr[indexPath.row]
             
             cell.lbNombreCampus.text = campus

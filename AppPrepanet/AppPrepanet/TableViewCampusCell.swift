@@ -10,5 +10,6 @@ import UIKit
 class TableViewCampusCell: UITableViewCell {
 
     @IBOutlet weak var lbNombreCampus: UILabel!
+    @IBOutlet weak var View: UIView!
     
 }

@@ -11,5 +11,5 @@ class TableViewAlumnoCell: UITableViewCell {
 
 
     @IBOutlet weak var lbMatriculaAlumno: UILabel!
-    
+    @IBOutlet weak var View: UIView!
 }
