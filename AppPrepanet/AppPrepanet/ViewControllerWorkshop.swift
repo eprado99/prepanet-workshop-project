@@ -23,10 +23,14 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     
     var workshop : Workshop!
     var user: User!
+    var inscripcion: Inscripcion!
+    var userWks : [String:Any]!
     override func viewDidLoad() {
         super.viewDidLoad()
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
+        // Check workshops enrolled by user
+        isEnrolled()
         lbTitle.textAlignment = .center
         if user.rol == "Coord"{
             lbEstado.isHidden = true
@@ -74,17 +78,36 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     @IBAction func enrollBt(_ sender: UIButton){
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
         enrollStudent()
+        print("\(self.inscripcion.wkID)")
         lbDescEstado.text = "En proceso"
     }
+    
     
     private func isEnrolled(){
         var db: Firestore!
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        
-        //var userStatus = db.collection
+        // mejor jalar datos de Inscripciones
+        let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: user.matricula)
+        userStatus.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("There was an error \(err) or Didn't find any documents where matricula is  \(self.user.matricula)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let wkIDDB = document.get("tallerID") as! String
+                    let campusIDDB = document.get("campusID") as! String
+                    let matriculaAlumID = document.get("matricula") as! String
+                    let statusDB = document.get("status") as! String
+                    let dateDB = document.get("Date") as! Timestamp
+                    let dateSwift : Date = dateDB.dateValue()
+                    
+                    self.inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                }
+            }
+        }
     }
+    
     private func enrollStudent(){
         var db: Firestore!
         
@@ -101,6 +124,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             "status" : "En Proceso"
             
         ]
+        
         var ref: DocumentReference? = nil
         ref = db.collection("InscripcionesDummy").addDocument(data: enrollData) { (err) in
             if let err = err {
@@ -110,6 +134,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
+        /*
         let enrollUserData: [String:Any] = [
             
             "status" : "En Proceso",
@@ -121,8 +146,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         refAlumno.updateData([
             "wkInscritos": FieldValue.arrayUnion([enrollUserData])
         ])
-         
-    
+        */
     }
     
 }

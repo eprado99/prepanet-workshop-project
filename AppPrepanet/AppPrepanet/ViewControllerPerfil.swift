@@ -14,7 +14,7 @@ class ViewControllerPerfil: UIViewController {
     var nombre: String!
     var matricula: String!
     var campus: String!
-    
+    var inscripcion: Inscripcion!
     @IBOutlet weak var nomCoord: UILabel!
     @IBOutlet weak var correoCoord: UILabel!
     @IBOutlet weak var nombrePerf: UILabel!
@@ -35,7 +35,7 @@ class ViewControllerPerfil: UIViewController {
         db = Firestore.firestore()
         
         getAlumno(campus: campus)
-        
+        isEnrolled()
         // Styling
         drawSeparator(xCoor: 10, yCoor: 260)
         drawSeparator(xCoor: 10, yCoor: 420)
@@ -72,6 +72,30 @@ class ViewControllerPerfil: UIViewController {
         }
     }
     
+    private func isEnrolled(){
+        var db: Firestore!
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        // mejor jalar datos de Inscripciones
+        let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: self.matricula)
+        userStatus.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("There was an error \(err) or Didn't find any documents where matricula is  \(self.matricula)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let wkIDDB = document.get("tallerID") as! String
+                    let campusIDDB = document.get("campusID") as! String
+                    let matriculaAlumID = document.get("matricula") as! String
+                    let statusDB = document.get("status") as! String
+                    let dateDB = document.get("Date") as! Timestamp
+                    let dateSwift : Date = dateDB.dateValue()
+                    
+                    self.inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                }
+            }
+        }
+    }
     // MARK: - Navigation
     @IBAction func dismissVCP(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

@@ -106,11 +106,14 @@ class ViewController: UIViewController {
                     print("more than 1 doc")
                 } else {
                     if let document = querySnapshot!.documents.first {
+                        
+                        print(document.documentID)
                         let userData = document.data()
                         let nomBD = userData["nombre"] as? String ?? ""
                         let campusBD = userData["campus"] as? String ?? ""
                         let emailBD = userData["email"] as? String ?? ""
-                        let matBD = userData["matricula"] as? String ?? ""
+                        //let matBD = userData["matricula"] as? String ?? ""
+                        let matBD = document.documentID as? String ?? ""
                         let rolBD = userData["rol"] as? String ?? ""
                         self.user = User(nombre: nomBD, email: emailBD, matricula: matBD, campus: campusBD, rol: rolBD)
                         self.rol = rolBD

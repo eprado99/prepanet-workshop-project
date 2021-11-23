@@ -15,7 +15,7 @@ class Inscripcion: NSObject {
     var date: Date
     var status: String
     
-    init(wkID: String, campusID : String, matriculaAlum : String, date : Date){
+    init(wkID: String, campusID : String, matriculaAlum : String, status : String ,date : Date){
         self.date = date
         self.campusID = campusID
         self.matriculaAlum = matriculaAlum

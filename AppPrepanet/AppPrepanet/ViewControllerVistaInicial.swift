@@ -58,6 +58,7 @@ class ViewControllerVistaInicial: UIViewController {
                 if let document = querySnapshot!.documents.first {
                     let userData = document.data()
                     let nombreCoordDB = userData["nombre"] as? String ?? ""
+                    // let matriculaCoordDB = document.documentID????
                     let matriculaCoordDB = userData["matricula"] as? String ?? ""
                     let campus = userData["campus"] as? String ?? ""
 

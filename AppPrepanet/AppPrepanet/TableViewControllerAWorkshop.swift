@@ -95,13 +95,14 @@ class TableViewControllerAWorkshop: UITableViewController {
                     let dateFormatter3 = DateFormatter()
                     dateFormatter3.dateStyle = .none
                     dateFormatter3.timeStyle = .short
-                    
+                    /*
                     // Formatting examples
                     print("-----------------------------------")
                     print(dateFormatter.string(from: startDateBD))
                     print(dateFormatter1.string(from: startDateBD))
                     print(dateFormatter2.string(from: startDateBD), dateFormatter3.string(from: startDateBD))
                     print(dateFormatter2.string(from: endDateBD), dateFormatter3.string(from: endDateBD))
+                    */
                     /*
                      Todos los metodos asumen por default el current timeZone del usuario
                      Feb 14, 2022 at 9:00 AM (dateFormatter)
