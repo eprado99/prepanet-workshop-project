@@ -44,16 +44,22 @@ class TableViewControllerCampus: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
             let campus = campusArr[indexPath.row]
             
+            
             cell.lbNombreCampus.text = campus
             let color = UIColor(red: 206/255, green: 235/255, blue: 255/255, alpha: 1)
             cell.View.backgroundColor = color
+            cell.View.layer.cornerRadius = cell.View.frame.height/2
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! TableViewCampusCell
             let campus = campusArr[indexPath.row]
             
+            
             cell.lbNombreCampus.text = campus
+            let color = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+            cell.View.backgroundColor = color
+            cell.View.layer.cornerRadius = cell.View.frame.height/2
             return cell
         }
     }
