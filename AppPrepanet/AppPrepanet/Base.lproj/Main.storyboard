@@ -501,7 +501,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1u-4l-UUI">
-                                <rect key="frame" x="47.5" y="222" width="280" height="80"/>
+                                <rect key="frame" x="47.5" y="257" width="280" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.38141727450000001" blue="0.7843759656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="Gi1-MX-itV"/>
@@ -516,7 +516,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unn-WT-fZF">
-                                <rect key="frame" x="47.5" y="462" width="280" height="80"/>
+                                <rect key="frame" x="47.5" y="507" width="280" height="80"/>
                                 <color key="backgroundColor" red="0.085370726879999997" green="0.36155849699999998" blue="0.74514013530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="KH1-vO-HZL"/>
@@ -561,7 +561,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63B-YX-Fku">
-                                <rect key="frame" x="47.5" y="342" width="280" height="80"/>
+                                <rect key="frame" x="47.5" y="382" width="280" height="80"/>
                                 <color key="backgroundColor" red="0.085370726879999997" green="0.36155849699999998" blue="0.74514013530000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="bWa-rO-0It"/>
@@ -590,10 +590,11 @@
                         <viewLayoutGuide key="safeArea" id="caT-08-gkn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="u1u-4l-UUI" firstAttribute="top" secondItem="WiO-4d-nOh" secondAttribute="bottom" constant="90" id="3Cc-wZ-VCy"/>
                             <constraint firstItem="u1u-4l-UUI" firstAttribute="centerX" secondItem="AP0-La-urJ" secondAttribute="centerX" id="3eU-0S-vSW"/>
+                            <constraint firstItem="caT-08-gkn" firstAttribute="bottom" secondItem="Unn-WT-fZF" secondAttribute="bottom" constant="80" id="73K-ox-TSu"/>
                             <constraint firstItem="6D2-lI-0Bb" firstAttribute="top" secondItem="86h-4k-tWa" secondAttribute="bottom" constant="10" id="8Om-U6-hdb"/>
                             <constraint firstItem="WiO-4d-nOh" firstAttribute="top" secondItem="6D2-lI-0Bb" secondAttribute="bottom" constant="10" id="9aH-pa-S9q"/>
+                            <constraint firstItem="Unn-WT-fZF" firstAttribute="top" secondItem="63B-YX-Fku" secondAttribute="bottom" constant="45" id="9gy-TR-Pas"/>
                             <constraint firstItem="WiO-4d-nOh" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="25" id="Cz4-Me-b4w"/>
                             <constraint firstItem="6D2-lI-0Bb" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="25" id="DBk-LI-Aus"/>
                             <constraint firstItem="86h-4k-tWa" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="25" id="Izf-9M-wNt"/>
@@ -603,9 +604,8 @@
                             <constraint firstItem="lrB-mS-2Ir" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="15" id="bie-MA-8Hy"/>
                             <constraint firstItem="caT-08-gkn" firstAttribute="trailing" secondItem="T7M-Bj-XH6" secondAttribute="trailing" constant="10" id="eRh-0t-CrD"/>
                             <constraint firstItem="caT-08-gkn" firstAttribute="bottom" secondItem="lrB-mS-2Ir" secondAttribute="bottom" constant="15" id="m5p-R8-fYr"/>
+                            <constraint firstItem="63B-YX-Fku" firstAttribute="top" secondItem="u1u-4l-UUI" secondAttribute="bottom" constant="45" id="qAG-UJ-oOV"/>
                             <constraint firstItem="T7M-Bj-XH6" firstAttribute="leading" secondItem="6D2-lI-0Bb" secondAttribute="trailing" constant="5" id="tzy-Hw-Ob9"/>
-                            <constraint firstItem="63B-YX-Fku" firstAttribute="top" secondItem="u1u-4l-UUI" secondAttribute="bottom" constant="40" id="v4l-p0-R3w"/>
-                            <constraint firstItem="Unn-WT-fZF" firstAttribute="top" secondItem="63B-YX-Fku" secondAttribute="bottom" constant="40" id="z8n-xd-Tx5"/>
                             <constraint firstItem="T7M-Bj-XH6" firstAttribute="top" secondItem="caT-08-gkn" secondAttribute="top" constant="10" id="zt2-H3-mcR"/>
                         </constraints>
                     </view>
@@ -1121,7 +1121,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0BP-Ic-0oZ"/>
+        <segue reference="23J-qA-SLT"/>
         <segue reference="pf3-5Y-FJP"/>
     </inferredMetricsTieBreakers>
     <resources>
