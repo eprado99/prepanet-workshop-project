@@ -11,9 +11,6 @@ import FirebaseFirestore
 
 class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    class workshopCell : UITableViewCell {
-        
-    }
     
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbAbout: UILabel!
@@ -36,8 +33,17 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         btInscripcion.layer.cornerRadius = 4
         // Check workshops enrolled by user
         getEnrollmentStatus(){
+            
+            if(self.canEnroll()){
+                self.btInscripcion.isEnabled = true
+            } else {
+                self.btInscripcion.isEnabled = false
+            }
             self.isEnrolled()
+            
         }
+        
+
         lbTitle.textAlignment = .center
         if user.rol == "Coord"{
             lbEstado.isHidden = true
@@ -67,6 +73,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewSingleWorkshopCell
         cell.lbWkTitle?.text = workshop.req[indexPath.row]
+        cell.imgStatus.image = UIImage(systemName: "checkmark")
         return cell
     }
     
@@ -85,8 +92,40 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
         enrollStudent()
     }
-    
-    
+    // DONE
+    private func canEnroll() -> Bool {
+        var enroll : Bool = false
+        print(inscripciones.count)
+        print(workshop.req.count)
+        if(workshop.req.count == 0) {
+            return true
+        }
+        for inscripcion in inscripciones{
+            if(workshop.req.count == Int(inscripcion.wkID) && inscripcion.status == "Aprobado"){
+                enroll = true
+            }
+        }
+        print(enroll)
+        return enroll
+    }
+    private func getWkTitle(wkID:String){
+        var db: Firestore!
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        let wkTitle = db.collection("Taller").document(wkID)
+        wkTitle.getDocument { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                let wkData = querySnapshot!.data()
+                let titleDB = wkData!["titulo"] as? String ?? ""
+                print(titleDB) // silence warning
+            }
+        }
+        
+    }
     private func getEnrollmentStatus(completion: @escaping () -> Void){
         var db: Firestore!
         let settings = FirestoreSettings()
@@ -128,6 +167,11 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     self.btInscripcion.backgroundColor = UIColor.systemGreen
                     self.btInscripcion.setTitle(inscripcion.status, for: .normal)
                 }
+                if(inscripcion.status == "Aprobado"){
+                    self.btInscripcion.isEnabled = false
+                    self.btInscripcion.backgroundColor = UIColor.systemGreen
+                    self.btInscripcion.setTitle(inscripcion.status, for: .normal)
+                }
                 self.lbDescEstado.text = inscripcion.status
             }
         }
@@ -158,21 +202,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
-        
+        // mover esto a un completion
         isEnrolled()
-        /*
-        let enrollUserData: [String:Any] = [
-            
-            "status" : "En Proceso",
-            "tallerID" : workshop.wkID
-            
-        ]
-        
-        var refAlumno  = db.collection("UsuariosDummy").document(user.matricula)
-        refAlumno.updateData([
-            "wkInscritos": FieldValue.arrayUnion([enrollUserData])
-        ])
-        */
+
         btInscripcion.isEnabled = false
     }
     
