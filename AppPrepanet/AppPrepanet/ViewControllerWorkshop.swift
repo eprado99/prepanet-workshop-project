@@ -8,10 +8,13 @@
 import UIKit
 import FirebaseFirestore
 
+
 class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    class workshopCell : UITableViewCell {
+        
+    }
     
-
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbAbout: UILabel!
     @IBOutlet weak var lbEstado: UILabel!
@@ -20,6 +23,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var endDate: UILabel!
+    
     
     var workshop : Workshop!
     var user: User!
@@ -63,7 +67,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.textLabel?.text = workshop.req[indexPath.row]
-        
         return cell
     }
     

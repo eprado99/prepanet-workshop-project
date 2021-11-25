@@ -8,7 +8,11 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewControllerPerfil: UIViewController {
+class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    
     
     var db: Firestore!
     var nombre: String!
@@ -47,6 +51,24 @@ class ViewControllerPerfil: UIViewController {
         let sepView = UIView(frame: CGRect(x: xCoor, y: yCoor, width: Int(self.view.frame.size.width)-20, height: 1))
         sepView.backgroundColor = UIColor.gray
         self.view.addSubview(sepView)
+    }
+    
+    // MARK: - Table View
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return inscripciones.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewPerfilCell
+        let inscripcion = inscripciones[indexPath.row]
+        //cell.textLabel?.text = inscripcion.wkID
+        cell.wkTitle?.text = inscripcion.wkID
+        cell.imgStatus.image = UIImage(systemName: "checkmark")
+        // get wk name by wk id
+        
+        // get image by status
+        return cell
+        
     }
     
     // MARK: - Database
@@ -90,12 +112,12 @@ class ViewControllerPerfil: UIViewController {
                     let statusDB = document.get("status") as! String
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
-                    
                     self.inscripciones.append(Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift))
                 }
             }
         }
     }
+    
     // MARK: - Navigation
     @IBAction func dismissVCP(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
