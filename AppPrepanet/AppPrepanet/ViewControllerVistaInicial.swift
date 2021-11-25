@@ -87,5 +87,10 @@ class ViewControllerVistaInicial: UIViewController {
             
          }
      }
-
+    
+    
+    @IBAction func logOut(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

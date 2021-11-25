@@ -11,13 +11,14 @@ import FirebaseFirestore
 
 class TableViewControllerAlumnos: UITableViewController {
 
+    var user: User!
     var db: Firestore!
     var campus: String!
     var nombreAlumno: String!
     var campusAlumno: String!
     var matriculaAlumno: String!
     
-    var AlumnosArr : [String] = []
+    var AlumnosArr : [User] = []
     
     @IBOutlet weak var btBack: UIBarButtonItem!
     
@@ -49,7 +50,7 @@ class TableViewControllerAlumnos: UITableViewController {
         if indexPath.row%2 == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
             let alumno = AlumnosArr[indexPath.row]
-            cell.lbMatriculaAlumno.text = alumno
+            cell.lbMatriculaAlumno.text = alumno.matricula
             let color = UIColor(red: 206/255, green: 235/255, blue: 255/255, alpha: 1)
             cell.View.backgroundColor = color
             cell.View.layer.cornerRadius = cell.View.frame.height/2
@@ -59,7 +60,7 @@ class TableViewControllerAlumnos: UITableViewController {
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "celdaAlumno", for: indexPath) as! TableViewAlumnoCell
             let alumno = AlumnosArr[indexPath.row]
-            cell.lbMatriculaAlumno.text = alumno
+            cell.lbMatriculaAlumno.text = alumno.matricula
             let color = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
             cell.View.backgroundColor = color
             cell.View.layer.cornerRadius = cell.View.frame.height/2
@@ -76,12 +77,16 @@ class TableViewControllerAlumnos: UITableViewController {
                 print("ERROR! \(err)")
             } else {
                 for document in querySnapshot!.documents{
-                    let matricula = document.documentID
-                    //let matricula = document.get("matricula") as! String
-                    self.nombreAlumno = document.get("nombre") as? String
-                    self.campusAlumno = document.get("campus") as? String
-                    self.matriculaAlumno = matricula
-                    self.AlumnosArr.append(matricula)
+                    let userData = document.data()
+                    self.nombreAlumno = userData["nombre"] as? String ?? ""
+                    self.campusAlumno = userData["campus"] as? String ?? ""
+                    let emailBD = userData["email"] as? String ?? ""
+                    //let matBD = userData["matricula"] as? String ?? ""
+                    self.matriculaAlumno = document.documentID as? String ?? ""
+                    let rolBD = userData["rol"] as? String ?? ""
+                    self.user = User(nombre: self.nombreAlumno, email: emailBD, matricula: self.matriculaAlumno, campus: self.campusAlumno, rol: rolBD)
+                    
+                    self.AlumnosArr.append(self.user)
                 }
             }
             self.tableView.reloadData()
@@ -94,9 +99,11 @@ class TableViewControllerAlumnos: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vistaPerfilAlumno = segue.destination as! ViewControllerPerfil
-        vistaPerfilAlumno.nombre = self.nombreAlumno
-        vistaPerfilAlumno.campus = self.campus
-        vistaPerfilAlumno.matricula = self.matriculaAlumno
+        let index = tableView.indexPathForSelectedRow!
+        vistaPerfilAlumno.nombre = self.AlumnosArr[index.row].nombre
+        vistaPerfilAlumno.campus = self.AlumnosArr[index.row].campus
+        vistaPerfilAlumno.matricula = self.AlumnosArr[index.row].matricula
+        vistaPerfilAlumno.user = self.user
     }
     
     @IBAction func regresarTablaCampus(_ sender: UIBarButtonItem) {
