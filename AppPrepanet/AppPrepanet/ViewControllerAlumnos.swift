@@ -58,6 +58,7 @@ class ViewControllerAlumnos: UIViewController {
         if segue.identifier == "perfilAlum" {
             let vcNavC = segue.destination as! UINavigationController
             let vcPerfil = vcNavC.topViewController as! ViewControllerPerfil
+            vcPerfil.user = user
             vcPerfil.nombre = nombreAlumno.text
             vcPerfil.matricula = matriculaAlumno.text
             vcPerfil.campus = user.campus

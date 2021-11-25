@@ -17,6 +17,7 @@
 		AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */; };
 		AF83856C273445270014860D /* Inscripcion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83856B273445270014860D /* Inscripcion.swift */; };
 		AFD17FCC274FF3C700019E59 /* TableViewPerfilCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD17FCB274FF3C700019E59 /* TableViewPerfilCell.swift */; };
+		AFD17FCF274FFCE300019E59 /* TableViewSingleWorkshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD17FCE274FFCE300019E59 /* TableViewSingleWorkshopCell.swift */; };
 		B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A877502743154500762F8D /* TableViewControllerCampus.swift */; };
 		B5A8775827431CAA00762F8D /* TableViewCampusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */; };
 		B5A8775B274326D400762F8D /* TableViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */; };
@@ -44,6 +45,7 @@
 		AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWorkshop.swift; sourceTree = "<group>"; };
 		AF83856B273445270014860D /* Inscripcion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscripcion.swift; sourceTree = "<group>"; };
 		AFD17FCB274FF3C700019E59 /* TableViewPerfilCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPerfilCell.swift; sourceTree = "<group>"; };
+		AFD17FCE274FFCE300019E59 /* TableViewSingleWorkshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSingleWorkshopCell.swift; sourceTree = "<group>"; };
 		B5A877502743154500762F8D /* TableViewControllerCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCampus.swift; sourceTree = "<group>"; };
 		B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCampusCell.swift; sourceTree = "<group>"; };
 		B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAlumnos.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				FB7EC6202722FD020028F1C7 /* SceneDelegate.swift */,
 				FB7EC6222722FD020028F1C7 /* ViewController.swift */,
 				FB7EC6242722FD020028F1C7 /* Main.storyboard */,
+				AFD17FCE274FFCE300019E59 /* TableViewSingleWorkshopCell.swift */,
 				AFD17FCB274FF3C700019E59 /* TableViewPerfilCell.swift */,
 				B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */,
 				B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */,
@@ -259,6 +262,7 @@
 			files = (
 				B5A8775827431CAA00762F8D /* TableViewCampusCell.swift in Sources */,
 				AF83856C273445270014860D /* Inscripcion.swift in Sources */,
+				AFD17FCF274FFCE300019E59 /* TableViewSingleWorkshopCell.swift in Sources */,
 				B5A8775B274326D400762F8D /* TableViewControllerAlumnos.swift in Sources */,
 				AF761DF3272AE36100958AAB /* TableViewControllerAWorkshop.swift in Sources */,
 				FB7EC656272322D00028F1C7 /* ViewControllerVistaInicial.swift in Sources */,

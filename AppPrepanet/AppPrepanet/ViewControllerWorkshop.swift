@@ -65,8 +65,8 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = workshop.req[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewSingleWorkshopCell
+        cell.lbWkTitle?.text = workshop.req[indexPath.row]
         return cell
     }
     

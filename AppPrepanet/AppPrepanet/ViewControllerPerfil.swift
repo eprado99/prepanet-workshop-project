@@ -13,7 +13,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var user: User!
     var db: Firestore!
     var nombre: String!
     var matricula: String!
@@ -39,7 +39,13 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         db = Firestore.firestore()
         
         getAlumno(campus: campus)
-        isEnrolled()
+        getEnrollmentStatus { [self] in
+            for inscripcion in inscripciones{
+                print(inscripcion.wkID)
+            }
+        }
+        print("USER EN PERFIL \(user.matricula)")
+
         // Styling
         drawSeparator(xCoor: 10, yCoor: 260)
         drawSeparator(xCoor: 10, yCoor: 420)
@@ -94,16 +100,16 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    private func isEnrolled(){
+    private func getEnrollmentStatus(completion: @escaping () -> Void){
         var db: Firestore!
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         // mejor jalar datos de Inscripciones
-        let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: self.matricula)
+        let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: user.matricula)
         userStatus.getDocuments { (querySnapshot, err) in
             if let err = err {
-                print("There was an error \(err) or Didn't find any documents where matricula is  \(self.matricula)")
+                print("There was an error \(err) or Didn't find any documents where matricula is  \(self.user.matricula)")
             } else {
                 for document in querySnapshot!.documents {
                     let wkIDDB = document.get("tallerID") as! String
@@ -112,8 +118,15 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                     let statusDB = document.get("status") as! String
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
-                    self.inscripciones.append(Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift))
+                    
+                    print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
+                    let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    self.inscripciones.append(inscripcion)
+                    
+                    
                 }
+                self.tableView.reloadData()
+                completion()
             }
         }
     }
