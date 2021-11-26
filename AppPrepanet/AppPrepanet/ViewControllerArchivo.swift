@@ -5,24 +5,37 @@
 //  Created by Jose Andres Villarreal Montemayor on 11/10/21.
 //
 
+import FirebaseFirestore
 import UIKit
 
 class ViewControllerArchivo: UIViewController {
     
-    var arregloDummy : [String] = ["Nombre", "Matricula", "Campus"]
+    let db = Firestore.firestore()
+    
+    var arregloUsuarios : [[String:Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "prueba"
-
+        
+        db.collection("Usuarios").whereField("rol", isEqualTo: "Alumno")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        //print("\(document.documentID) => \(document.data())")
+                        self.arregloUsuarios.append(document.data())
+                    }
+                }
+        }
         // Do any additional setup after loading the view.
     }
     
     
     
     @IBAction func buttShare(_ sender: UIButton) {
-        let datosUsuario = arregloDummy.joined(separator: ",")
-        let share = [datosUsuario] as [Any]
+        //let datosUsuario = arregloUsuarios.joined(separator: ",")
+        let share = [arregloUsuarios] as [Any]
         let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
         
         //para iPhone y iPod
