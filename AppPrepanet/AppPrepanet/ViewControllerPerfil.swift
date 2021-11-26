@@ -12,7 +12,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
     
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var titWK: String!
     var user: User!
     var db: Firestore!
     var nombre: String!
@@ -50,6 +50,8 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         drawSeparator(xCoor: 10, yCoor: 240)
         drawSeparator(xCoor: 10, yCoor: 380)
         
+        tableView.reloadData()
+        
     }
     
     // MARK: - Styling
@@ -68,7 +70,12 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewPerfilCell
         let inscripcion = inscripciones[indexPath.row]
         //cell.textLabel?.text = inscripcion.wkID
-        cell.wkTitle?.text = inscripcion.wkID
+        //print(getWkTitle(wkID: inscripcion.wkID))
+        getWkTitle(wkID: inscripcion.wkID){
+            print(self.titWK)
+            //cell.wkTitle.text = self.titWK
+        }
+        cell.wkTitle.text = self.titWK
         cell.imgStatus.image = UIImage(systemName: "checkmark")
         // get wk name by wk id
         
@@ -119,7 +126,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
                     
-                    print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
+                    // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
                     let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
@@ -129,6 +136,26 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                 completion()
             }
         }
+    }
+    
+    private func getWkTitle(wkID:String, completion: @escaping () -> Void){
+        var db: Firestore!
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        var titleDB : String = ""
+        let wkTitle = db.collection("Taller").document(wkID)
+        wkTitle.getDocument { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                let wkData = querySnapshot!.data()
+                titleDB = wkData!["titulo"] as? String ?? ""
+                // print(titleDB) // silence warning
+                print(titleDB)
+            }
+        }
+        self.titWK = titleDB
     }
     
     // MARK: - Navigation

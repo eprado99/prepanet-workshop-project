@@ -73,10 +73,26 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewSingleWorkshopCell
         cell.lbWkTitle?.text = workshop.req[indexPath.row]
-        cell.imgStatus.image = UIImage(systemName: "checkmark")
+        print("indexPath.row")
+        print(indexPath.row)
+        //cell.imgStatus.image = getSystemImage(status: inscripciones[indexPath.row].status)
         return cell
     }
     
+    func getSystemImage(status : String) -> UIImage {
+        var image: UIImage!
+        if(status == "En Proceso"){
+            image = UIImage(systemName: "confirmation")
+        }
+        if(status == "Inscrito"){
+            image = UIImage(systemName: "confirmation")
+        }
+        if(status == "Aprobado"){
+            image = UIImage(systemName: "checkmark")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+            
+        }
+        return image
+    }
 
     /*
     // MARK: - Navigation
@@ -90,13 +106,15 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
 
     @IBAction func enrollBt(_ sender: UIButton){
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
-        enrollStudent()
+        enrollStudent(){
+            self.isEnrolled()
+        }
     }
-    // DONE
+
     private func canEnroll() -> Bool {
         var enroll : Bool = false
-        print(inscripciones.count)
-        print(workshop.req.count)
+        //print(inscripciones.count)
+        //print(workshop.req.count)
         if(workshop.req.count == 0) {
             return true
         }
@@ -105,9 +123,10 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                 enroll = true
             }
         }
-        print(enroll)
+        //print(enroll)
         return enroll
     }
+    
     private func getWkTitle(wkID:String){
         var db: Firestore!
         let settings = FirestoreSettings()
@@ -177,7 +196,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-    private func enrollStudent(){
+    private func enrollStudent(completion: @escaping () -> Void){
         var db: Firestore!
         
         let settings = FirestoreSettings()
@@ -200,10 +219,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                 print("There was an error adding your doc \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
+                self.lbDescEstado.text = "En Proceso"
             }
         }
-        // mover esto a un completion
-        isEnrolled()
 
         btInscripcion.isEnabled = false
     }
