@@ -32,7 +32,6 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         nombrePerf.text = nombre
         campusPerf.text = "Campus " + campus
         // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        
         // Database
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
@@ -77,10 +76,17 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         }
         */
         cell.wkTitle.text = inscripcion.wkTitle
-        cell.imgStatus.image = UIImage(systemName: "checkmark")
-        // get wk name by wk id
-        
-        // get image by status
+        if(inscripcion.status == "En Proceso"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+            
+        }
+        if(inscripcion.status == "Inscrito"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        }
+        if(inscripcion.status == "Aprobado"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+            
+        }
         return cell
         
     }

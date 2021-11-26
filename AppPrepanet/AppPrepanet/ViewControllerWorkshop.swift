@@ -62,7 +62,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         startDate.text = dateFormatter.string(from: workshop.startDate)
         endDate.text = dateFormatter.string(from: workshop.endDate)
         
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Table View
@@ -93,16 +92,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         }
         return image
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func enrollBt(_ sender: UIButton){
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
@@ -140,7 +129,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             } else {
                 let wkData = querySnapshot!.data()
                 let titleDB = wkData!["titulo"] as? String ?? ""
-                print(titleDB) // silence warning
             }
         }
         
@@ -150,7 +138,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        // mejor jalar datos de Inscripciones
         let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: user.matricula)
         userStatus.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -164,7 +151,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
                     
-                    print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
+                    // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
                     let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
