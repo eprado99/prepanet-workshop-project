@@ -1087,6 +1087,7 @@
                         <outlet property="backButton" destination="kgM-V5-Vfq" id="2fO-hq-oRP"/>
                         <outlet property="campusPerf" destination="Pk4-AK-EFN" id="qRM-vY-Esp"/>
                         <outlet property="correoCoord" destination="07h-3a-YHi" id="kBC-2X-Ajf"/>
+                        <outlet property="lbCampus" destination="LJr-Op-8Vh" id="NkU-iT-NBE"/>
                         <outlet property="nomCoord" destination="fKM-TR-cbR" id="sZf-xL-dlJ"/>
                         <outlet property="nombrePerf" destination="8GM-rh-BNb" id="9Zb-DF-FAt"/>
                         <outlet property="tableView" destination="GpI-kz-EFO" id="bfD-BB-SIX"/>

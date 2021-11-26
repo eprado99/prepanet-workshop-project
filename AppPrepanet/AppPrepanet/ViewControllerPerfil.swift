@@ -24,6 +24,23 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var nombrePerf: UILabel!
     @IBOutlet weak var campusPerf: UILabel!
     @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var lbCampus: UILabel!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let origen1 = self.nomCoord.frame.origin.y
+        let altura1 = self.nomCoord.frame.height
+        let ubicacion1 = origen1 + altura1 - 70
+        
+        print(Int(ubicacion1))
+        
+        let origen2 = self.correoCoord.frame.origin.y
+        let altura2 = self.correoCoord.frame.height
+        let ubicacion2 = origen2 + altura2 + 10
+        
+        drawSeparator(xCoor: 10, yCoor: Int(ubicacion1))
+        drawSeparator(xCoor: 10, yCoor: Int(ubicacion2))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +63,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         print("USER EN PERFIL \(user.matricula)")
 
         // Styling
-        drawSeparator(xCoor: 10, yCoor: 280)
-        drawSeparator(xCoor: 10, yCoor: 400)
+        
         
         tableView.reloadData()
         
