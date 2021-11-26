@@ -8,7 +8,7 @@
 import UIKit
 
 class Inscripcion: NSObject {
-    
+    var wkTitle: String
     var wkID: String
     var campusID: String
     var matriculaAlum: String
@@ -16,6 +16,7 @@ class Inscripcion: NSObject {
     var status: String
     
     init(wkID: String, campusID : String, matriculaAlum : String, status : String ,date : Date){
+        self.wkTitle = ""
         self.date = date
         self.campusID = campusID
         self.matriculaAlum = matriculaAlum
@@ -23,4 +24,12 @@ class Inscripcion: NSObject {
         self.wkID = wkID
     }
     
+    init(wkTitle: String, wkID: String, campusID : String, matriculaAlum : String, status : String ,date : Date){
+        self.wkTitle = wkTitle
+        self.date = date
+        self.campusID = campusID
+        self.matriculaAlum = matriculaAlum
+        self.status = status
+        self.wkID = wkID
+    }
 }

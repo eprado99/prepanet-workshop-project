@@ -204,7 +204,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         db = Firestore.firestore()
         // tallerID, campusID, matricula, status, Date
         let enrollData: [String: Any] = [
-            
+            "tallerTitle" : workshop.title,
             "Date" : workshop.startDate,
             "tallerID" : workshop.wkID,
             "campusID" : user.campus,

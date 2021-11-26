@@ -71,11 +71,12 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         let inscripcion = inscripciones[indexPath.row]
         //cell.textLabel?.text = inscripcion.wkID
         //print(getWkTitle(wkID: inscripcion.wkID))
+        /*
         getWkTitle(wkID: inscripcion.wkID){
-            print(self.titWK)
             //cell.wkTitle.text = self.titWK
         }
-        cell.wkTitle.text = self.titWK
+        */
+        cell.wkTitle.text = inscripcion.wkTitle
         cell.imgStatus.image = UIImage(systemName: "checkmark")
         // get wk name by wk id
         
@@ -119,6 +120,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                 print("There was an error \(err) or Didn't find any documents where matricula is  \(self.user.matricula)")
             } else {
                 for document in querySnapshot!.documents {
+                    let wkTitleDB = document.get("tallerTitle") as! String
                     let wkIDDB = document.get("tallerID") as! String
                     let campusIDDB = document.get("campusID") as! String
                     let matriculaAlumID = document.get("matricula") as! String
@@ -127,7 +129,7 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                     let dateSwift : Date = dateDB.dateValue()
                     
                     // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
-                    let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    let inscripcion = Inscripcion(wkTitle: wkTitleDB, wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
                     
