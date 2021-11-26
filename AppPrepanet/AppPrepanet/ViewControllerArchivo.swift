@@ -12,7 +12,13 @@ class ViewControllerArchivo: UIViewController {
     
     let db = Firestore.firestore()
     
-    var arregloUsuarios : [[String:Any]] = []
+    var arregloUsuarios : [String] = []
+    var campus = ""
+    var email = ""
+    var matricula = ""
+    var nombre = ""
+    var rol = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +30,21 @@ class ViewControllerArchivo: UIViewController {
                 } else {
                     for document in querySnapshot!.documents {
                         //print("\(document.documentID) => \(document.data())")
-                        self.arregloUsuarios.append(document.data())
+                        //self.arregloUsuarios.append(document.data())
+                        self.nombre = document.data()["nombre"] as? String ?? " "
+                        self.matricula = document.data()["matricula"] as? String ?? " "
+                        self.email = document.data()["email"] as? String ?? " "
+                        self.campus = document.data()["campus"] as? String ?? " "
+                        self.rol = document.data()["rol"] as? String ?? " "
+                        self.arregloUsuarios.append(self.nombre)
+                        self.arregloUsuarios.append(self.matricula)
+                        self.arregloUsuarios.append(self.email)
+                        self.arregloUsuarios.append(self.campus)
+                        self.arregloUsuarios.append(self.rol)
+                        //generaReporte(nom: nombre, mat: matricula, mail: email, camp: campus, r: rol)
                     }
                 }
+                print(self.arregloUsuarios)
         }
         // Do any additional setup after loading the view.
     }
@@ -42,7 +60,6 @@ class ViewControllerArchivo: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
         
     }
-    
     
 
     /*
