@@ -47,8 +47,8 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         print("USER EN PERFIL \(user.matricula)")
 
         // Styling
-        drawSeparator(xCoor: 10, yCoor: 240)
-        drawSeparator(xCoor: 10, yCoor: 380)
+        drawSeparator(xCoor: 10, yCoor: 280)
+        drawSeparator(xCoor: 10, yCoor: 400)
         
         tableView.reloadData()
         
