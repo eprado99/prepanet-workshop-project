@@ -15,6 +15,7 @@ class Workshop: NSObject {
     var req: [String]
     var startDate: Date
     var endDate: Date
+    var status : String!
     
     init(wkID: String, title: String, descr: String, req: [String], startDate: Date, endDate: Date) {
         self.wkID = wkID
@@ -23,8 +24,18 @@ class Workshop: NSObject {
         self.req = req
         self.startDate = startDate
         self.endDate = endDate
+        self.status = ""
     }
     
+    init(wkID: String, title: String, descr: String, req: [String], startDate: Date, endDate: Date, status : String) {
+        self.wkID = wkID
+        self.title = title
+        self.descr = descr
+        self.req = req
+        self.startDate = startDate
+        self.endDate = endDate
+        self.status = status
+    }
 }
 
 // MARK: - Docs

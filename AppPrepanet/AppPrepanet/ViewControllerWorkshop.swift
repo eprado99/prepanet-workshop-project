@@ -72,9 +72,10 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewSingleWorkshopCell
         cell.lbWkTitle?.text = workshop.req[indexPath.row]
+        // use wkid
         print("indexPath.row")
         print(indexPath.row)
-        //cell.imgStatus.image = getSystemImage(status: inscripciones[indexPath.row].status)
+        //cell.imgStatus.image = getSystemImage(status: inscripciones[indexPath.row].status ?? nil)
         return cell
     }
     
@@ -133,6 +134,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
+ 
     private func getEnrollmentStatus(completion: @escaping () -> Void){
         var db: Firestore!
         let settings = FirestoreSettings()
