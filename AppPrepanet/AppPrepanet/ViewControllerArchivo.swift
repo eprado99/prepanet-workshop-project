@@ -12,7 +12,8 @@ class ViewControllerArchivo: UIViewController {
     
     let db = Firestore.firestore()
     
-    var arregloUsuarios : [String] = []
+    var arregloUsuario : [String] = []
+    var reporteUsuarios = [[String]]()
     var campus = ""
     var email = ""
     var matricula = ""
@@ -29,22 +30,22 @@ class ViewControllerArchivo: UIViewController {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        //print("\(document.documentID) => \(document.data())")
-                        //self.arregloUsuarios.append(document.data())
+                        self.arregloUsuario.removeAll()
                         self.nombre = document.data()["nombre"] as? String ?? " "
                         self.matricula = document.data()["matricula"] as? String ?? " "
                         self.email = document.data()["email"] as? String ?? " "
                         self.campus = document.data()["campus"] as? String ?? " "
                         self.rol = document.data()["rol"] as? String ?? " "
-                        self.arregloUsuarios.append(self.nombre)
-                        self.arregloUsuarios.append(self.matricula)
-                        self.arregloUsuarios.append(self.email)
-                        self.arregloUsuarios.append(self.campus)
-                        self.arregloUsuarios.append(self.rol)
+                        self.arregloUsuario.append(self.nombre)
+                        self.arregloUsuario.append(self.matricula)
+                        self.arregloUsuario.append(self.email)
+                        self.arregloUsuario.append(self.campus)
+                        self.arregloUsuario.append(self.rol)
+                        self.reporteUsuarios.append(self.arregloUsuario)
                         //generaReporte(nom: nombre, mat: matricula, mail: email, camp: campus, r: rol)
                     }
                 }
-                print(self.arregloUsuarios)
+                print(self.reporteUsuarios)
         }
         // Do any additional setup after loading the view.
     }
@@ -52,10 +53,10 @@ class ViewControllerArchivo: UIViewController {
     
     
     @IBAction func buttShare(_ sender: UIButton) {
-        //let datosUsuario = arregloUsuarios.joined(separator: ",")
-        let share = [arregloUsuarios] as [Any]
+        let share = reporteUsuarios as [[String]]
         let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
         
+        activityViewController.isModalInPresentation = true
         //para iPhone y iPod
         self.present(activityViewController, animated: true, completion: nil)
         

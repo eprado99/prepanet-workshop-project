@@ -631,18 +631,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-aJ-Iq3">
-                                <rect key="frame" x="178" y="137" width="19" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-aJ-Iq3">
+                                <rect key="frame" x="178" y="181" width="19" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button" image="square.and.arrow.up" catalog="system"/>
                                 <connections>
                                     <action selector="buttShare:" destination="cO0-V4-4PV" eventType="touchUpInside" id="3Cp-Ez-b6E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mandar registros de usuarios por correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-Qz-WCH">
-                                <rect key="frame" x="34" y="65" width="306" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generar reporte de alumnos registrados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-Qz-WCH">
+                                <rect key="frame" x="30" y="80" width="318" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -650,6 +648,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UZn-OY-Ozu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="trailing" secondItem="khg-Qz-WCH" secondAttribute="trailing" constant="30" id="0jL-BI-1Jx"/>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="trailing" secondItem="Wl4-aJ-Iq3" secondAttribute="trailing" constant="178" id="16L-Xm-YCW"/>
+                            <constraint firstItem="khg-Qz-WCH" firstAttribute="top" secondItem="UZn-OY-Ozu" secondAttribute="top" constant="80" id="A3L-6f-8vs"/>
+                            <constraint firstItem="Wl4-aJ-Iq3" firstAttribute="leading" secondItem="UZn-OY-Ozu" secondAttribute="leading" constant="178" id="Bu0-Sq-Wek"/>
+                            <constraint firstItem="Wl4-aJ-Iq3" firstAttribute="top" secondItem="khg-Qz-WCH" secondAttribute="bottom" constant="80" id="D45-Uq-6Vu"/>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="trailing" secondItem="khg-Qz-WCH" secondAttribute="trailing" constant="27" id="KZP-nq-Uru"/>
+                            <constraint firstItem="khg-Qz-WCH" firstAttribute="leading" secondItem="UZn-OY-Ozu" secondAttribute="leading" constant="27" id="QqP-rg-xmz"/>
+                            <constraint firstItem="khg-Qz-WCH" firstAttribute="leading" secondItem="UZn-OY-Ozu" secondAttribute="leading" constant="30" id="sE8-7T-Sga"/>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="bottom" secondItem="Wl4-aJ-Iq3" secondAttribute="bottom" constant="436" id="uGJ-Sc-QYJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rft-ca-XKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
