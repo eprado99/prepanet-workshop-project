@@ -264,6 +264,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-WW-RWV">
+                                            <rect key="frame" x="164" y="36" width="195" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="FHs-2i-ofI" secondAttribute="trailing" constant="15" id="05Q-gT-6dR"/>
@@ -281,6 +288,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lbDescription" destination="FHs-2i-ofI" id="aGS-UW-5ad"/>
+                                    <outlet property="lbEstado" destination="ZpQ-WW-RWV" id="1Ys-41-sdW"/>
                                     <outlet property="lbTitle" destination="1J3-3A-1ma" id="trR-oj-svg"/>
                                     <outlet property="viewFondo" destination="vsp-nH-Gti" id="Mdc-gq-c2M"/>
                                     <segue destination="Otc-6X-kPi" kind="show" id="b5u-xt-hyS"/>
@@ -305,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9x-kd-0xB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2975" y="-806"/>
+            <point key="canvasLocation" x="2973.5999999999999" y="-806.44677661169419"/>
         </scene>
         <!--View Controller Workshop-->
         <scene sceneID="SCh-so-5dP">
