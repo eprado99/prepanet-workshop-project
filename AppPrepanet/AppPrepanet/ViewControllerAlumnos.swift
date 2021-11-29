@@ -19,6 +19,7 @@ class ViewControllerAlumnos: UIViewController {
     @IBOutlet weak var campusAlumno: UILabel!
     @IBOutlet weak var BtTalleres: UIButton!
     @IBOutlet weak var BtPerfil: UIButton!
+    @IBOutlet weak var btLogout: UIButton!
     
     
     @IBOutlet weak var btWorkshop: UIButton!
@@ -35,6 +36,7 @@ class ViewControllerAlumnos: UIViewController {
         print("\(user.nombre)")
         BtTalleres.layer.cornerRadius = 40
         BtPerfil.layer.cornerRadius = 40
+        btLogout.layer.cornerRadius = 5
 
         setUIData()
         

@@ -187,12 +187,15 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdk-m0-dGX">
-                                <rect key="frame" x="20" y="617" width="30" height="30"/>
+                                <rect key="frame" x="20" y="617" width="40" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.38141727450000001" blue="0.7843759656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QUp-Uw-40A"/>
-                                    <constraint firstAttribute="width" constant="30" id="cX0-OX-9zz"/>
+                                    <constraint firstAttribute="width" constant="40" id="WyA-2t-IA4"/>
                                 </constraints>
-                                <state key="normal" title="Salir"/>
+                                <state key="normal" title="Salir">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="logOutWithSender:" destination="GNd-7g-RO7" eventType="touchUpInside" id="Dz7-j5-22o"/>
                                 </connections>
@@ -222,6 +225,7 @@
                     <connections>
                         <outlet property="BtPerfil" destination="19M-hz-e3O" id="xty-81-uOg"/>
                         <outlet property="BtTalleres" destination="EXe-3F-yLL" id="T71-gY-uOc"/>
+                        <outlet property="btLogout" destination="Jdk-m0-dGX" id="TUF-2X-lUd"/>
                         <outlet property="btWorkshop" destination="EXe-3F-yLL" id="L2o-9P-pbh"/>
                         <outlet property="campusAlumno" destination="7kf-aC-j0b" id="gBH-oj-cO4"/>
                         <outlet property="matriculaAlumno" destination="wJM-2N-nfi" id="Rot-VH-Z2f"/>
@@ -250,7 +254,23 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsp-nH-Gti">
                                             <rect key="frame" x="16" y="11" width="343" height="95"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-WW-RWV">
+                                                    <rect key="frame" x="74" y="69" width="195" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="195" id="L7e-0C-0L7"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Zah-WC-Db1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ZpQ-WW-RWV" secondAttribute="bottom" constant="5" id="H06-C4-WG4"/>
+                                                <constraint firstItem="ZpQ-WW-RWV" firstAttribute="centerX" secondItem="vsp-nH-Gti" secondAttribute="centerX" id="kCT-ST-5B6"/>
+                                            </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-3A-1ma">
                                             <rect key="frame" x="26" y="21" width="323" height="21"/>
@@ -259,14 +279,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHs-2i-ofI">
-                                            <rect key="frame" x="31" y="48" width="313" height="58"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpQ-WW-RWV">
-                                            <rect key="frame" x="90" y="37" width="195" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <rect key="frame" x="31" y="47" width="313" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -276,14 +289,14 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="FHs-2i-ofI" secondAttribute="trailing" constant="15" id="05Q-gT-6dR"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vsp-nH-Gti" secondAttribute="bottom" id="45l-Nn-1du"/>
                                         <constraint firstItem="1J3-3A-1ma" firstAttribute="top" secondItem="1Rw-Uc-yqy" secondAttribute="topMargin" constant="10" id="57l-tw-hf1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FHs-2i-ofI" secondAttribute="bottom" constant="28" id="5q7-Tb-3vV"/>
                                         <constraint firstItem="1J3-3A-1ma" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" constant="10" id="ESH-MK-UxL"/>
-                                        <constraint firstItem="FHs-2i-ofI" firstAttribute="top" secondItem="1J3-3A-1ma" secondAttribute="bottom" constant="10" id="Rx6-Gq-MNH"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="1J3-3A-1ma" secondAttribute="trailing" constant="10" id="WN6-2n-zYp"/>
                                         <constraint firstItem="vsp-nH-Gti" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" id="YuO-Aw-pYK"/>
+                                        <constraint firstItem="FHs-2i-ofI" firstAttribute="top" secondItem="1J3-3A-1ma" secondAttribute="bottom" constant="5" id="l2Q-Tl-Id1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="vsp-nH-Gti" secondAttribute="trailing" id="le3-Gs-bCG"/>
                                         <constraint firstItem="FHs-2i-ofI" firstAttribute="leading" secondItem="1Rw-Uc-yqy" secondAttribute="leadingMargin" constant="15" id="pSK-af-f7i"/>
                                         <constraint firstItem="vsp-nH-Gti" firstAttribute="top" secondItem="1Rw-Uc-yqy" secondAttribute="topMargin" id="tVG-FD-yhr"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="FHs-2i-ofI" secondAttribute="bottom" constant="10" id="tqF-fm-HPV"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -625,12 +638,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrB-mS-2Ir">
-                                <rect key="frame" x="15" y="622" width="30" height="30"/>
+                                <rect key="frame" x="15" y="622" width="40" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.38141727450000001" blue="0.7843759656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="YSP-dX-00k"/>
+                                    <constraint firstAttribute="width" constant="40" id="CC5-9Z-SVp"/>
                                     <constraint firstAttribute="height" constant="30" id="dpa-3h-bMn"/>
                                 </constraints>
-                                <state key="normal" title="Salir"/>
+                                <state key="normal" title="Salir">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="logOut:" destination="j6w-AS-ndG" eventType="touchUpInside" id="tQ2-LC-Ttb"/>
                                 </connections>
@@ -1173,7 +1189,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0BP-Ic-0oZ"/>
+        <segue reference="23J-qA-SLT"/>
         <segue reference="pf3-5Y-FJP"/>
     </inferredMetricsTieBreakers>
     <resources>

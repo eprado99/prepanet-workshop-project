@@ -68,16 +68,21 @@ class TableViewControllerAWorkshop: UITableViewController {
         let workshop = workshopArr[indexPath.row]
         cell.lbTitle.text = workshop.title
         cell.lbDescription.text = workshop.descr
-        cell.lbEstado.text = workshop.status
-        if(workshop.status == "Aprobado"){
-            cell.lbEstado.textColor = UIColor.systemGreen
-        } else if (workshop.status == "Inscrito") {
-            cell.lbEstado.textColor = UIColor.systemBlue
-        } else if (workshop.status == "En Proceso") {
-            cell.lbEstado.textColor = UIColor.systemTeal
-        } else {
-            cell.lbEstado.text = "No inscrito"
+        if user.rol == "Alumno"{
+            cell.lbEstado.text = workshop.status
+            if(workshop.status == "Aprobado"){
+                cell.lbEstado.textColor = UIColor.systemGreen
+            } else if (workshop.status == "Inscrito") {
+                cell.lbEstado.textColor = UIColor.systemBlue
+            } else if (workshop.status == "En Proceso") {
+                cell.lbEstado.textColor = UIColor.systemTeal
+            } else {
+                cell.lbEstado.text = "No inscrito"
+            }
+        }else{
+            cell.lbEstado.isHidden = true
         }
+        
         cell.viewFondo.layer.cornerRadius = cell.viewFondo.frame.height / 2
         cell.viewFondo.layer.borderWidth = 2
         cell.viewFondo.layer.borderColor = UIColor.systemBlue.cgColor
