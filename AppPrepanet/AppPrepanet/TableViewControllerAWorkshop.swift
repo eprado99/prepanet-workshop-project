@@ -79,6 +79,8 @@ class TableViewControllerAWorkshop: UITableViewController {
             cell.lbEstado.text = "No inscrito"
         }
         cell.viewFondo.layer.cornerRadius = cell.viewFondo.frame.height / 2
+        cell.viewFondo.layer.borderWidth = 2
+        cell.viewFondo.layer.borderColor = UIColor.systemBlue.cgColor
         return cell
     }
 

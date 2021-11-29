@@ -23,6 +23,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     
     
     var workshop : Workshop!
+    var reqs : [Requerimiento] = []
     var user: User!
     var inscripciones: [Inscripcion] = []
     var userWks : [String:Any]!
@@ -31,6 +32,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
         btInscripcion.layer.cornerRadius = 4
+        
         // Check workshops enrolled by user
         getEnrollmentStatus(){
             
@@ -43,7 +45,8 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-
+        initializeReqObject()
+        
         lbTitle.textAlignment = .center
         if user.rol == "Coord"{
             lbEstado.isHidden = true
@@ -65,16 +68,43 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: - Table View
+    
+    func initializeReqObject(){
+        var requerimiento : Requerimiento!
+        for req in self.workshop.req {
+            requerimiento = Requerimiento(req: req)
+            self.reqs.append(requerimiento)
+        }
+        for inscripcion in inscripciones {
+            for requerimiento in reqs{
+                if(inscripcion.wkTitle == requerimiento.req){
+                    requerimiento.status = inscripcion.status
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workshop.req.count
+        return reqs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewSingleWorkshopCell
-        cell.lbWkTitle?.text = workshop.req[indexPath.row]
-        // use wkid
-        print("indexPath.row")
-        print(indexPath.row)
+        cell.lbWkTitle?.text = reqs[indexPath.row].req
+        
+        print(reqs[indexPath.row].req)
+        print(reqs[indexPath.row].status)
+        if(reqs[indexPath.row].status == "En Proceso"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+            
+        } else if(reqs[indexPath.row].status == "Inscrito"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemTeal, renderingMode: .alwaysOriginal)
+        } else if(reqs[indexPath.row].status == "Aprobado"){
+            cell.imgStatus.image = UIImage(systemName: "checkmark.circle")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
+            
+        } else {
+            cell.imgStatus.image = nil
+        }
         //cell.imgStatus.image = getSystemImage(status: inscripciones[indexPath.row].status ?? nil)
         return cell
     }
@@ -130,6 +160,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             } else {
                 let wkData = querySnapshot!.data()
                 let titleDB = wkData!["titulo"] as? String ?? ""
+                print(titleDB)
             }
         }
         
@@ -147,6 +178,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             } else {
                 for document in querySnapshot!.documents {
                     let wkIDDB = document.get("tallerID") as! String
+                    let wkTitleDB = document.get("tallerTitle") as! String
                     let campusIDDB = document.get("campusID") as! String
                     let matriculaAlumID = document.get("matricula") as! String
                     let statusDB = document.get("status") as! String
@@ -154,7 +186,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     let dateSwift : Date = dateDB.dateValue()
                     
                     // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
-                    let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
+                    let inscripcion = Inscripcion(wkTitle: wkTitleDB, wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
                     

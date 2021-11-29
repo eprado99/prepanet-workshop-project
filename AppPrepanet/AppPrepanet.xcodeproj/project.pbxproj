@@ -16,6 +16,7 @@
 		AF777F51272F436D00E036F4 /* Workshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F50272F436D00E036F4 /* Workshop.swift */; };
 		AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */; };
 		AF83856C273445270014860D /* Inscripcion.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83856B273445270014860D /* Inscripcion.swift */; };
+		AF87CB9727554EC100ED1BC4 /* Requerimiento.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF87CB9627554EC100ED1BC4 /* Requerimiento.swift */; };
 		AFD17FCC274FF3C700019E59 /* TableViewPerfilCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD17FCB274FF3C700019E59 /* TableViewPerfilCell.swift */; };
 		AFD17FCF274FFCE300019E59 /* TableViewSingleWorkshopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD17FCE274FFCE300019E59 /* TableViewSingleWorkshopCell.swift */; };
 		B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A877502743154500762F8D /* TableViewControllerCampus.swift */; };
@@ -44,6 +45,7 @@
 		AF777F50272F436D00E036F4 /* Workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
 		AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWorkshop.swift; sourceTree = "<group>"; };
 		AF83856B273445270014860D /* Inscripcion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inscripcion.swift; sourceTree = "<group>"; };
+		AF87CB9627554EC100ED1BC4 /* Requerimiento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requerimiento.swift; sourceTree = "<group>"; };
 		AFD17FCB274FF3C700019E59 /* TableViewPerfilCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPerfilCell.swift; sourceTree = "<group>"; };
 		AFD17FCE274FFCE300019E59 /* TableViewSingleWorkshopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSingleWorkshopCell.swift; sourceTree = "<group>"; };
 		B5A877502743154500762F8D /* TableViewControllerCampus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCampus.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */,
 				AF761DF8272AE8A500958AAB /* ViewControllerPerfil.swift */,
 				AF777F55272F463200E036F4 /* ViewControllerWorkshop.swift */,
+				AF87CB9627554EC100ED1BC4 /* Requerimiento.swift */,
 				AF83856B273445270014860D /* Inscripcion.swift */,
 				AF761DF5272AE3C500958AAB /* TableViewWorkshopCell.swift */,
 				AF761DF2272AE36100958AAB /* TableViewControllerAWorkshop.swift */,
@@ -274,6 +277,7 @@
 				FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */,
 				AF523767272A457D00FAE261 /* ViewControllerAlumnos.swift in Sources */,
 				AF69369E2731BC00003E307E /* User.swift in Sources */,
+				AF87CB9727554EC100ED1BC4 /* Requerimiento.swift in Sources */,
 				AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */,
 				B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */,
 				E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */,

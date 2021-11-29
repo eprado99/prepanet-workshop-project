@@ -84,13 +84,6 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewPerfilCell
         let inscripcion = inscripciones[indexPath.row]
-        //cell.textLabel?.text = inscripcion.wkID
-        //print(getWkTitle(wkID: inscripcion.wkID))
-        /*
-        getWkTitle(wkID: inscripcion.wkID){
-            //cell.wkTitle.text = self.titWK
-        }
-        */
         cell.wkTitle.text = inscripcion.wkTitle
         if(inscripcion.status == "En Proceso"){
             cell.imgStatus.image = UIImage(systemName: "checkmark")?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
@@ -135,7 +128,6 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        // mejor jalar datos de Inscripciones
         let userStatus = db.collection("Inscripciones").whereField("matricula", isEqualTo: user.matricula)
         userStatus.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -149,8 +141,6 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
                     let statusDB = document.get("status") as! String
                     let dateDB = document.get("Date") as! Timestamp
                     let dateSwift : Date = dateDB.dateValue()
-                    
-                    // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
                     let inscripcion = Inscripcion(wkTitle: wkTitleDB, wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                     
