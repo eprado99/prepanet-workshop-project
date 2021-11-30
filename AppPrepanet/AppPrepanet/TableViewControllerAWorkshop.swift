@@ -27,10 +27,26 @@ class TableViewControllerAWorkshop: UITableViewController {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
+        
+        //self.loadData()
+        loadData {
+            self.reloadTableView()
+        }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("hola")
+        self.loadData(){
+            print("im out")
+        }
+    }
+    func loadData(completion: @escaping () -> Void){
+        
         getWorkshops()
         getStatus(){
             for inscripcion in self.inscripciones {
-                
                 for workshop in self.workshopArr {
                     if(inscripcion.wkID == workshop.wkID) {
                         //print(inscripcion.wkID)
@@ -39,20 +55,15 @@ class TableViewControllerAWorkshop: UITableViewController {
                         continue
                     }
                 }
+        
             }
-            self.printWorkshops()
-            self.tableView.reloadData()
         }
-
-        // printWorkshops()
-    }
-    
-    func printWorkshops(){
-        for workshop in workshopArr {
-            print(workshop.status)
-        }
+        completion()
     }
 
+    func reloadTableView(){
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -68,8 +79,8 @@ class TableViewControllerAWorkshop: UITableViewController {
         let workshop = workshopArr[indexPath.row]
         cell.lbTitle.text = workshop.title
         cell.lbDescription.text = workshop.descr
+        cell.lbEstado.text = workshop.status
         if user.rol == "Alumno"{
-            cell.lbEstado.text = workshop.status
             if(workshop.status == "Aprobado"){
                 cell.lbEstado.textColor = UIColor.systemGreen
             } else if (workshop.status == "Inscrito") {

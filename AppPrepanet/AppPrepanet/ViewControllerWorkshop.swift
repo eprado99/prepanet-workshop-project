@@ -45,7 +45,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        initializeReqObject()
+        initializeReqObject(){
+            //self.tableView.reloadData()
+        }
         
         lbTitle.textAlignment = .center
         if user.rol == "Coord"{
@@ -69,7 +71,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Table View
     
-    func initializeReqObject(){
+    func initializeReqObject(completion: @escaping () -> Void){
         var requerimiento : Requerimiento!
         for req in self.workshop.req {
             requerimiento = Requerimiento(req: req)
@@ -79,6 +81,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             for requerimiento in reqs{
                 if(inscripcion.wkTitle == requerimiento.req){
                     requerimiento.status = inscripcion.status
+                    continue
                 }
             }
         }
