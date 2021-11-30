@@ -724,18 +724,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-aJ-Iq3">
-                                <rect key="frame" x="178" y="137" width="19" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-aJ-Iq3">
+                                <rect key="frame" x="178" y="141" width="19" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Button" image="square.and.arrow.up" catalog="system"/>
                                 <connections>
                                     <action selector="buttShare:" destination="cO0-V4-4PV" eventType="touchUpInside" id="3Cp-Ez-b6E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mandar base de datos por correo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-Qz-WCH">
-                                <rect key="frame" x="60" y="66" width="254" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generar reporte de alumnos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khg-Qz-WCH">
+                                <rect key="frame" x="80" y="70" width="215" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -743,6 +741,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UZn-OY-Ozu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="trailing" secondItem="Wl4-aJ-Iq3" secondAttribute="trailing" constant="178" id="6fn-lT-k4R"/>
+                            <constraint firstItem="khg-Qz-WCH" firstAttribute="leading" secondItem="UZn-OY-Ozu" secondAttribute="leading" constant="80" id="ATA-l2-3UA"/>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="trailing" secondItem="khg-Qz-WCH" secondAttribute="trailing" constant="80" id="Fp7-FK-crm"/>
+                            <constraint firstItem="Wl4-aJ-Iq3" firstAttribute="leading" secondItem="UZn-OY-Ozu" secondAttribute="leading" constant="178" id="HJd-FW-vrk"/>
+                            <constraint firstItem="Wl4-aJ-Iq3" firstAttribute="top" secondItem="khg-Qz-WCH" secondAttribute="bottom" constant="50" id="LAl-Ai-5Hv"/>
+                            <constraint firstItem="khg-Qz-WCH" firstAttribute="top" secondItem="UZn-OY-Ozu" secondAttribute="top" constant="70" id="Xgl-7P-ZG0"/>
+                            <constraint firstItem="UZn-OY-Ozu" firstAttribute="bottom" secondItem="Wl4-aJ-Iq3" secondAttribute="bottom" constant="476" id="do1-Ia-ugM"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rft-ca-XKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1222,11 +1229,11 @@
                                 </constraints>
                                 <string key="text">Prepanet Talleres del Bienestar fue desarrollado como proyecto final de la materia 
 Integración de seguridad informática en redes y sistemas de 
-softwareen el semestre Agosto-Diciembre 2021.
+software en el semestre Agosto-Diciembre 2021.
 Desarrolladores:
 Emilio Fernando Prado Chible
 Héctor Guapo Guerrero
-José Andrés Villareal Montemayor</string>
+José Andrés Villarreal Montemayor</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1266,8 +1273,8 @@ José Andrés Villareal Montemayor</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="s0H-Rb-VvD"/>
-        <segue reference="23J-qA-SLT"/>
+        <segue reference="yBV-tO-TU7"/>
+        <segue reference="0BP-Ic-0oZ"/>
         <segue reference="pf3-5Y-FJP"/>
     </inferredMetricsTieBreakers>
     <resources>

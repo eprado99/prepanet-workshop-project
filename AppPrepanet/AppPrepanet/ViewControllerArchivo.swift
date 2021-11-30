@@ -5,37 +5,63 @@
 //  Created by Jose Andres Villarreal Montemayor on 11/10/21.
 //
 
+import FirebaseFirestore
 import UIKit
 
 class ViewControllerArchivo: UIViewController {
     
-    var arregloDummy : [String] = ["Nombre", "Matricula", "Campus"]
+    let db = Firestore.firestore()
+    
+    var arregloUsuario : [String] = []
+    var reporteUsuarios = [[String]]()
+    var campus = ""
+    var email = ""
+    var matricula = ""
+    var nombre = ""
+    var rol = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "prueba"
-
+        
+        db.collection("Usuarios").whereField("rol", isEqualTo: "Alumno")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        self.arregloUsuario.removeAll()
+                        self.nombre = document.data()["nombre"] as? String ?? " "
+                        self.matricula = document.data()["matricula"] as? String ?? " "
+                        self.email = document.data()["email"] as? String ?? " "
+                        self.campus = document.data()["campus"] as? String ?? " "
+                        self.rol = document.data()["rol"] as? String ?? " "
+                        self.arregloUsuario.append(self.nombre)
+                        self.arregloUsuario.append(self.matricula)
+                        self.arregloUsuario.append(self.email)
+                        self.arregloUsuario.append(self.campus)
+                        self.arregloUsuario.append(self.rol)
+                        self.reporteUsuarios.append(self.arregloUsuario)
+                        //generaReporte(nom: nombre, mat: matricula, mail: email, camp: campus, r: rol)
+                    }
+                }
+                print(self.reporteUsuarios)
+        }
         // Do any additional setup after loading the view.
     }
     
     
     
     @IBAction func buttShare(_ sender: UIButton) {
-        let datosUsuario = arregloDummy.joined(separator: ",")
-        let share = [datosUsuario] as [Any]
+        let share = reporteUsuarios as [[String]]
         let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
         
+        activityViewController.isModalInPresentation = true
         //para iPhone y iPod
         self.present(activityViewController, animated: true, completion: nil)
         
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.portrait
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
 
     /*
     // MARK: - Navigation
@@ -46,5 +72,5 @@ class ViewControllerArchivo: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
 }
