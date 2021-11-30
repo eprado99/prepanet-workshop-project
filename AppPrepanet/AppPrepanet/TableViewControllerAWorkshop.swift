@@ -28,23 +28,20 @@ class TableViewControllerAWorkshop: UITableViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        //self.loadData()
-        //self.getWorkshops()
-        //loadData {
-            //self.reloadTableView()
-        //}
-        self.loadData(){
-            print("im out")
-        }
         
     }
-    /*
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        workshopArr.removeAll()
+        self.loadData(){
+            print("im out")
+            self.reloadTableView()
+        }
         print("hola")
 
     }
-    */
+    
     func loadData(completion: @escaping () -> Void){
         
         getWorkshops()
