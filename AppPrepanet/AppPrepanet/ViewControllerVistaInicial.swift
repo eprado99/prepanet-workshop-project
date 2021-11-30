@@ -16,6 +16,7 @@ class ViewControllerVistaInicial: UIViewController {
     @IBOutlet weak var btAlumnos: UIButton!
     @IBOutlet weak var btArchivo: UIButton!
     @IBOutlet weak var btPerfil: UIButton!
+    @IBOutlet weak var btLogout: UIButton!
     
     
     
@@ -28,6 +29,7 @@ class ViewControllerVistaInicial: UIViewController {
         btTalleres.layer.cornerRadius = 40	
         btAlumnos.layer.cornerRadius = 40
         btArchivo.layer.cornerRadius = 40
+        btLogout.layer.cornerRadius = 5
         
         let settings = FirestoreSettings()
         

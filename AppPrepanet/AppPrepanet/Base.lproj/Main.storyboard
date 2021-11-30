@@ -705,6 +705,7 @@
                     <connections>
                         <outlet property="btAlumnos" destination="63B-YX-Fku" id="rvL-Jd-rRk"/>
                         <outlet property="btArchivo" destination="Unn-WT-fZF" id="a52-PC-k2P"/>
+                        <outlet property="btLogout" destination="lrB-mS-2Ir" id="84D-NJ-Pml"/>
                         <outlet property="btTalleres" destination="u1u-4l-UUI" id="JCG-Kh-pmp"/>
                         <outlet property="campusCoord" destination="WiO-4d-nOh" id="f5U-xj-It7"/>
                         <outlet property="matriculaCoord" destination="6D2-lI-0Bb" id="dSd-Za-nPX"/>
@@ -1259,8 +1260,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yBV-tO-TU7"/>
-        <segue reference="0BP-Ic-0oZ"/>
+        <segue reference="s0H-Rb-VvD"/>
+        <segue reference="23J-qA-SLT"/>
         <segue reference="pf3-5Y-FJP"/>
     </inferredMetricsTieBreakers>
     <resources>
