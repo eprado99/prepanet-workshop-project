@@ -250,4 +250,10 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         btInscripcion.isEnabled = false
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 }

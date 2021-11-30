@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -200,12 +201,24 @@
                                     <action selector="logOutWithSender:" destination="GNd-7g-RO7" eventType="touchUpInside" id="Dz7-j5-22o"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOl-Mu-hMG">
+                                <rect key="frame" x="338" y="630" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="Wsg-qq-oUW"/>
+                                    <constraint firstAttribute="height" constant="22" id="ZLt-wc-3PI"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <segue destination="L9E-9c-HGC" kind="presentation" identifier="creditos" id="yBV-tO-TU7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3lx-vR-sI0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="wJM-2N-nfi" firstAttribute="top" secondItem="fyL-UE-IzP" secondAttribute="bottom" constant="10" id="0CF-gk-Viq"/>
                             <constraint firstItem="Jdk-m0-dGX" firstAttribute="leading" secondItem="3lx-vR-sI0" secondAttribute="leading" constant="20" id="Fvx-jY-8HG"/>
+                            <constraint firstItem="3lx-vR-sI0" firstAttribute="bottom" secondItem="cOl-Mu-hMG" secondAttribute="bottom" constant="15" id="HCD-yb-kBk"/>
                             <constraint firstItem="fyL-UE-IzP" firstAttribute="top" secondItem="3lx-vR-sI0" secondAttribute="top" constant="10" id="HKf-Qy-QBr"/>
                             <constraint firstItem="fyL-UE-IzP" firstAttribute="leading" secondItem="3lx-vR-sI0" secondAttribute="leading" constant="25" id="KNp-D9-XqA"/>
                             <constraint firstItem="3lx-vR-sI0" firstAttribute="bottom" secondItem="Jdk-m0-dGX" secondAttribute="bottom" constant="20" id="N1Y-gB-TuB"/>
@@ -215,6 +228,7 @@
                             <constraint firstItem="19M-hz-e3O" firstAttribute="centerX" secondItem="dNX-i3-geT" secondAttribute="centerX" id="eN4-SC-bpo"/>
                             <constraint firstItem="LLM-c0-5Cu" firstAttribute="top" secondItem="3lx-vR-sI0" secondAttribute="top" constant="10" id="gDW-9g-PjE"/>
                             <constraint firstItem="EXe-3F-yLL" firstAttribute="centerX" secondItem="dNX-i3-geT" secondAttribute="centerX" id="iMi-ea-2qw"/>
+                            <constraint firstItem="3lx-vR-sI0" firstAttribute="trailing" secondItem="cOl-Mu-hMG" secondAttribute="trailing" constant="15" id="kdi-cl-MjG"/>
                             <constraint firstItem="7kf-aC-j0b" firstAttribute="top" secondItem="wJM-2N-nfi" secondAttribute="bottom" constant="10" id="lhl-HD-zNN"/>
                             <constraint firstItem="LLM-c0-5Cu" firstAttribute="leading" secondItem="fyL-UE-IzP" secondAttribute="trailing" constant="5" id="r8f-j2-Ahz"/>
                             <constraint firstItem="EXe-3F-yLL" firstAttribute="top" secondItem="7kf-aC-j0b" secondAttribute="bottom" constant="120" id="vXS-QZ-gAd"/>
@@ -651,6 +665,17 @@
                                     <action selector="logOut:" destination="j6w-AS-ndG" eventType="touchUpInside" id="tQ2-LC-Ttb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUg-jC-SBI">
+                                <rect key="frame" x="338" y="630" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="4na-DA-3o2"/>
+                                    <constraint firstAttribute="width" constant="22" id="igW-58-0WQ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <segue destination="L9E-9c-HGC" kind="presentation" identifier="creditos" id="s0H-Rb-VvD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="caT-08-gkn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -664,10 +689,12 @@
                             <constraint firstItem="6D2-lI-0Bb" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="25" id="DBk-LI-Aus"/>
                             <constraint firstItem="86h-4k-tWa" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="25" id="Izf-9M-wNt"/>
                             <constraint firstItem="63B-YX-Fku" firstAttribute="centerX" secondItem="AP0-La-urJ" secondAttribute="centerX" id="TQi-75-v9c"/>
+                            <constraint firstItem="caT-08-gkn" firstAttribute="bottom" secondItem="KUg-jC-SBI" secondAttribute="bottom" constant="15" id="Wp5-lT-fSL"/>
                             <constraint firstItem="86h-4k-tWa" firstAttribute="top" secondItem="caT-08-gkn" secondAttribute="top" constant="10" id="Y9a-we-u5F"/>
                             <constraint firstItem="Unn-WT-fZF" firstAttribute="centerX" secondItem="AP0-La-urJ" secondAttribute="centerX" id="bhs-93-oZ7"/>
                             <constraint firstItem="lrB-mS-2Ir" firstAttribute="leading" secondItem="caT-08-gkn" secondAttribute="leading" constant="15" id="bie-MA-8Hy"/>
                             <constraint firstItem="caT-08-gkn" firstAttribute="trailing" secondItem="T7M-Bj-XH6" secondAttribute="trailing" constant="10" id="eRh-0t-CrD"/>
+                            <constraint firstAttribute="trailing" secondItem="KUg-jC-SBI" secondAttribute="trailing" constant="15" id="hha-IQ-lyM"/>
                             <constraint firstItem="caT-08-gkn" firstAttribute="bottom" secondItem="lrB-mS-2Ir" secondAttribute="bottom" constant="15" id="m5p-R8-fYr"/>
                             <constraint firstItem="63B-YX-Fku" firstAttribute="top" secondItem="u1u-4l-UUI" secondAttribute="bottom" constant="45" id="qAG-UJ-oOV"/>
                             <constraint firstItem="T7M-Bj-XH6" firstAttribute="leading" secondItem="6D2-lI-0Bb" secondAttribute="trailing" constant="5" id="tzy-Hw-Ob9"/>
@@ -789,7 +816,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgT-jq-Y3s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117.5999999999999" y="988.15592203898063"/>
+            <point key="canvasLocation" x="3882" y="952"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="ny0-NW-qbV">
@@ -860,7 +887,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXt-tx-qh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4997.6000000000004" y="987.25637181409309"/>
+            <point key="canvasLocation" x="5762" y="951"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qzF-Ep-KbR">
@@ -881,7 +908,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLN-gz-d6p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4078" y="988"/>
+            <point key="canvasLocation" x="4842" y="951"/>
         </scene>
         <!--View Controller Perfil-->
         <scene sceneID="nAb-Aw-qNN">
@@ -1117,7 +1144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxw-rg-oUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3149.5999999999999" y="156.97151424287858"/>
+            <point key="canvasLocation" x="3914" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="g17-mI-ubu">
@@ -1141,7 +1168,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MK8-tP-0Ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="989"/>
+            <point key="canvasLocation" x="2974" y="952"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KJK-uJ-Thj">
@@ -1169,6 +1196,49 @@
             </objects>
             <point key="canvasLocation" x="2001" y="-806"/>
         </scene>
+        <!--View Controller Creditos-->
+        <scene sceneID="Nhb-qm-fCq">
+            <objects>
+                <viewController id="L9E-9c-HGC" customClass="ViewControllerCreditos" customModule="AppPrepanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Exw-XT-fFG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Créditos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMm-wF-YMh">
+                                <rect key="frame" x="133" y="15" width="109" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="7Oc-yM-aCr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-B2-YOV">
+                                <rect key="frame" x="16" y="151" width="343" height="292"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="d9P-WV-h1G"/>
+                                    <constraint firstAttribute="height" constant="292" id="pn6-cn-yZ8"/>
+                                </constraints>
+                                <string key="text">Prepanet Talleres del Bienestar fue desarrollado como proyecto final de la materia Integración de seguridad informática en redes y sistemas de softwareen el semestre Agosto-Diciembre 2021.Desarrolladores:Emilio Fernando Prado ChibleHéctor Guapo GuerreroJosé Andrés Villareal Montemayor</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r5W-cs-JWv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aP4-B2-YOV" firstAttribute="centerX" secondItem="Exw-XT-fFG" secondAttribute="centerX" id="UTR-Qj-Q4z"/>
+                            <constraint firstItem="eMm-wF-YMh" firstAttribute="top" secondItem="r5W-cs-JWv" secondAttribute="top" constant="15" id="W9T-2A-VxO"/>
+                            <constraint firstItem="aP4-B2-YOV" firstAttribute="top" secondItem="eMm-wF-YMh" secondAttribute="bottom" constant="100" id="ceT-DR-xNy"/>
+                            <constraint firstItem="eMm-wF-YMh" firstAttribute="centerX" secondItem="Exw-XT-fFG" secondAttribute="centerX" id="sUA-Vt-c0D"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K1U-n9-8WK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021.5999999999999" y="484.40779610194909"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="DL1-DY-SUX">
             <objects>
@@ -1185,16 +1255,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUW-74-cRl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.8000000000002" y="156.97151424287858"/>
+            <point key="canvasLocation" x="2974" y="121"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="23J-qA-SLT"/>
+        <segue reference="yBV-tO-TU7"/>
+        <segue reference="0BP-Ic-0oZ"/>
         <segue reference="pf3-5Y-FJP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="logoPrepanet" width="2269" height="592"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>

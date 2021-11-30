@@ -85,6 +85,8 @@ class ViewControllerVistaInicial: UIViewController {
              let vcNavC = segue.destination as! UINavigationController
              let vcWorkshop = vcNavC.topViewController as! TableViewControllerCampus
             
+         } else if segue.identifier == "creditos" {
+            let vistaSig = segue.destination as! ViewControllerCreditos
          }
      }
     
@@ -93,4 +95,10 @@ class ViewControllerVistaInicial: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 }

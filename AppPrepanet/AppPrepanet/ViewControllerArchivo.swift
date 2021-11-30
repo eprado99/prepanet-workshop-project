@@ -30,7 +30,12 @@ class ViewControllerArchivo: UIViewController {
         
     }
     
-    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 
     /*
     // MARK: - Navigation
@@ -41,5 +46,5 @@ class ViewControllerArchivo: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

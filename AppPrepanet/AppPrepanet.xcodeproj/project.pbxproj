@@ -23,6 +23,7 @@
 		B5A8775827431CAA00762F8D /* TableViewCampusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */; };
 		B5A8775B274326D400762F8D /* TableViewControllerAlumnos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */; };
 		B5A8775E2743274300762F8D /* TableViewAlumnoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */; };
+		B5DED0942755B1260045CCE0 /* ViewControllerCreditos.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DED0932755B1260045CCE0 /* ViewControllerCreditos.swift */; };
 		E0084722273E3D270071AB04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0084721273E3D260071AB04 /* GoogleService-Info.plist */; };
 		E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09146E2273C456E00574E13 /* ViewControllerArchivo.swift */; };
 		FB7EC61F2722FD020028F1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7EC61E2722FD020028F1C7 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		B5A8775727431CAA00762F8D /* TableViewCampusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCampusCell.swift; sourceTree = "<group>"; };
 		B5A8775A274326D400762F8D /* TableViewControllerAlumnos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAlumnos.swift; sourceTree = "<group>"; };
 		B5A8775D2743274300762F8D /* TableViewAlumnoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAlumnoCell.swift; sourceTree = "<group>"; };
+		B5DED0932755B1260045CCE0 /* ViewControllerCreditos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCreditos.swift; sourceTree = "<group>"; };
 		DCA9A36E0B34D23CDFB327F1 /* Pods_AppPrepanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppPrepanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD5DE530C6BA6D07E722AACC /* Pods-AppPrepanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPrepanet.debug.xcconfig"; path = "Target Support Files/Pods-AppPrepanet/Pods-AppPrepanet.debug.xcconfig"; sourceTree = "<group>"; };
 		E0084721273E3D260071AB04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				AF69369D2731BC00003E307E /* User.swift */,
 				FB7EC65927232D590028F1C7 /* TableViewControllerTalleres.swift */,
 				FB7EC655272322D00028F1C7 /* ViewControllerVistaInicial.swift */,
+				B5DED0932755B1260045CCE0 /* ViewControllerCreditos.swift */,
 				FB7EC6272722FD040028F1C7 /* Assets.xcassets */,
 				FB7EC6292722FD040028F1C7 /* LaunchScreen.storyboard */,
 				E0084721273E3D260071AB04 /* GoogleService-Info.plist */,
@@ -280,6 +283,7 @@
 				AF87CB9727554EC100ED1BC4 /* Requerimiento.swift in Sources */,
 				AF777F56272F463200E036F4 /* ViewControllerWorkshop.swift in Sources */,
 				B5A877512743154500762F8D /* TableViewControllerCampus.swift in Sources */,
+				B5DED0942755B1260045CCE0 /* ViewControllerCreditos.swift in Sources */,
 				E09146E3273C456E00574E13 /* ViewControllerArchivo.swift in Sources */,
 				AF761DF6272AE3C500958AAB /* TableViewWorkshopCell.swift in Sources */,
 				AFD17FCC274FF3C700019E59 /* TableViewPerfilCell.swift in Sources */,

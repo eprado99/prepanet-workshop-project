@@ -64,12 +64,20 @@ class ViewControllerAlumnos: UIViewController {
             vcPerfil.nombre = nombreAlumno.text
             vcPerfil.matricula = matriculaAlumno.text
             vcPerfil.campus = user.campus
-        } else {
+        }else if segue.identifier == "creditos" {
+            let vistsSig = segue.destination as! ViewControllerCreditos
+        }
+        else {
             let vcNavC = segue.destination as! UINavigationController
             let vcWorkshop = vcNavC.topViewController as! TableViewControllerAWorkshop
             vcWorkshop.user = user
         }
     }
     
-
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.portrait
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 }
