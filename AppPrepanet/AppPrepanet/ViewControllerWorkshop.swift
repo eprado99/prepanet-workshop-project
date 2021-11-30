@@ -21,6 +21,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var endDate: UILabel!
     
+    @IBOutlet weak var tableView: UITableView!
     
     var workshop : Workshop!
     var reqs : [Requerimiento] = []
@@ -29,6 +30,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
     var userWks : [String:Any]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("----------------------")
         lbTitle.text = workshop.title
         lbAbout.text = workshop.descr
         btInscripcion.layer.cornerRadius = 4
@@ -43,10 +45,9 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
             }
             self.isEnrolled()
             
-        }
-        
-        initializeReqObject(){
-            //self.tableView.reloadData()
+            self.initializeReqObject {
+                print("im out")
+            }
         }
         
         lbTitle.textAlignment = .center
@@ -66,7 +67,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
 
         startDate.text = dateFormatter.string(from: workshop.startDate)
         endDate.text = dateFormatter.string(from: workshop.endDate)
-        
+        reloadTableView()
     }
     
     // MARK: - Table View
@@ -80,13 +81,18 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         for inscripcion in inscripciones {
             for requerimiento in reqs{
                 if(inscripcion.wkTitle == requerimiento.req){
+                    print("hola")
                     requerimiento.status = inscripcion.status
                     continue
                 }
             }
+            self.reloadTableView()
         }
     }
     
+    func reloadTableView(){
+        self.tableView.reloadData()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reqs.count
     }
@@ -111,21 +117,7 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         //cell.imgStatus.image = getSystemImage(status: inscripciones[indexPath.row].status ?? nil)
         return cell
     }
-    
-    func getSystemImage(status : String) -> UIImage {
-        var image: UIImage!
-        if(status == "En Proceso"){
-            image = UIImage(systemName: "confirmation")
-        }
-        if(status == "Inscrito"){
-            image = UIImage(systemName: "confirmation")
-        }
-        if(status == "Aprobado"){
-            image = UIImage(systemName: "checkmark")?.withTintColor(.systemGreen, renderingMode: .alwaysOriginal)
-            
-        }
-        return image
-    }
+
 
     @IBAction func enrollBt(_ sender: UIButton){
         // Verificar si estamos "En Proceso" o "Aprobado" para el workshop actual
@@ -191,7 +183,6 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
                     // print("\(wkIDDB) \(campusIDDB) \(matriculaAlumID) \(statusDB) \(dateSwift)")
                     let inscripcion = Inscripcion(wkTitle: wkTitleDB, wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matriculaAlumID, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
-                    
                     
                 }
                 completion()

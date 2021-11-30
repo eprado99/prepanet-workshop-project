@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -556,6 +555,7 @@
                         <outlet property="lbEstado" destination="20k-rN-fDI" id="gCh-HB-sqn"/>
                         <outlet property="lbTitle" destination="eO0-we-RKz" id="mFt-NF-iMH"/>
                         <outlet property="startDate" destination="wXf-do-pfu" id="eCH-Gw-uhU"/>
+                        <outlet property="tableView" destination="dna-xM-fnQ" id="u3s-vb-dwA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nx3-Wc-nuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1220,7 +1220,13 @@
                                     <constraint firstAttribute="width" constant="343" id="d9P-WV-h1G"/>
                                     <constraint firstAttribute="height" constant="292" id="pn6-cn-yZ8"/>
                                 </constraints>
-                                <string key="text">Prepanet Talleres del Bienestar fue desarrollado como proyecto final de la materia Integración de seguridad informática en redes y sistemas de softwareen el semestre Agosto-Diciembre 2021.Desarrolladores:Emilio Fernando Prado ChibleHéctor Guapo GuerreroJosé Andrés Villareal Montemayor</string>
+                                <string key="text">Prepanet Talleres del Bienestar fue desarrollado como proyecto final de la materia 
+Integración de seguridad informática en redes y sistemas de 
+softwareen el semestre Agosto-Diciembre 2021.
+Desarrolladores:
+Emilio Fernando Prado Chible
+Héctor Guapo Guerrero
+José Andrés Villareal Montemayor</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
