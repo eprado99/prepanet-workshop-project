@@ -29,35 +29,26 @@ class TableViewControllerAWorkshop: UITableViewController {
         db = Firestore.firestore()
         
         //self.loadData()
-        loadData {
-            self.reloadTableView()
-        }
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("hola")
+        //self.getWorkshops()
+        //loadData {
+            //self.reloadTableView()
+        //}
         self.loadData(){
             print("im out")
         }
+        
     }
+    /*
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("hola")
+
+    }
+    */
     func loadData(completion: @escaping () -> Void){
         
         getWorkshops()
-        getStatus(){
-            for inscripcion in self.inscripciones {
-                for workshop in self.workshopArr {
-                    if(inscripcion.wkID == workshop.wkID) {
-                        //print(inscripcion.wkID)
-                        //print(workshop.wkID)
-                        workshop.status = inscripcion.status
-                        continue
-                    }
-                }
-        
-            }
-        }
+
         completion()
     }
 
@@ -164,8 +155,22 @@ class TableViewControllerAWorkshop: UITableViewController {
                     
                 }
                     
+                self.getStatus(){
+                    for inscripcion in self.inscripciones {
+                        for workshop in self.workshopArr {
+                            if(inscripcion.wkID == workshop.wkID) {
+                                //print(inscripcion.wkID)
+                                //print(workshop.wkID)
+                                workshop.status = inscripcion.status
+                                continue
+                            }
+                        }
+                
+                    }
+                    
+                }
+                self.reloadTableView()
             }
-            self.tableView.reloadData()
         }
     }
     
@@ -183,10 +188,11 @@ class TableViewControllerAWorkshop: UITableViewController {
                     let statusDB = document.get("status") as! String
                     let date = document.get("Date") as! Timestamp
                     let dateSwift : Date = date.dateValue()
-                    
                     let inscripcion = Inscripcion(wkID: wkIDDB, campusID: campusIDDB, matriculaAlum: matricula, status: statusDB, date: dateSwift)
                     self.inscripciones.append(inscripcion)
                 }
+                self.reloadTableView()
+                
                 completion()
             }
         }
