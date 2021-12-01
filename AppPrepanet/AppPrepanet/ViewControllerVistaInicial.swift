@@ -28,7 +28,7 @@ class ViewControllerVistaInicial: UIViewController {
 
         btTalleres.layer.cornerRadius = 40	
         btAlumnos.layer.cornerRadius = 40
-        btArchivo.layer.cornerRadius = 40
+        //btArchivo.layer.cornerRadius = 40
         btLogout.layer.cornerRadius = 5
         
         let settings = FirestoreSettings()
