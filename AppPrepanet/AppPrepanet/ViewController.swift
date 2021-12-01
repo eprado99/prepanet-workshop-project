@@ -64,6 +64,8 @@ class ViewController: UIViewController {
                     
                     self.getRol(matricula: userID){
                         if self.rol == "Alumno" {
+                            self.tfUser.text = ""
+                            self.tfPassword.text = ""
                             self.performSegue(withIdentifier: "vistaAlumno", sender: self)
 
                         }

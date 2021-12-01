@@ -44,7 +44,9 @@ class ViewControllerPerfil: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if(user.rol == "Alumno"){
+            matricula = user.matricula
+        }
         title = "Perfil"
         nombrePerf.text = nombre
         campusPerf.text = "Campus " + campus

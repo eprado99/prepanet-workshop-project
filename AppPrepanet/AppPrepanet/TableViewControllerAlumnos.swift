@@ -100,10 +100,10 @@ class TableViewControllerAlumnos: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vistaPerfilAlumno = segue.destination as! ViewControllerPerfil
         let index = tableView.indexPathForSelectedRow!
+        vistaPerfilAlumno.user = self.AlumnosArr[index.row]
         vistaPerfilAlumno.nombre = self.AlumnosArr[index.row].nombre
         vistaPerfilAlumno.campus = self.AlumnosArr[index.row].campus
-        vistaPerfilAlumno.matricula = self.AlumnosArr[index.row].matricula
-        vistaPerfilAlumno.user = self.user
+        
     }
     
     @IBAction func regresarTablaCampus(_ sender: UIBarButtonItem) {

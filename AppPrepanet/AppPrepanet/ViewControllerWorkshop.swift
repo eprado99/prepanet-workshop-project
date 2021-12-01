@@ -35,6 +35,13 @@ class ViewControllerWorkshop: UIViewController, UITableViewDelegate, UITableView
         lbAbout.text = workshop.descr
         btInscripcion.layer.cornerRadius = 4
         
+        
+        if(user.rol == "Coord"){
+            self.initializeReqObject {
+                print("im out")
+            }
+        }
+
         // Check workshops enrolled by user
         getEnrollmentStatus(){
             
